@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!session_is_registered(uname)){
+if(!session_name("uname")){
 header("location:main.php");
 }
 ?>

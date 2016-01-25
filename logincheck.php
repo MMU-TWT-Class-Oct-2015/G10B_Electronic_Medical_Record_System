@@ -1,8 +1,6 @@
 <?php
-ob_start();
+//$_SESSION['name']= $_POST['uname'];
 $host="localhost";
-//$myname="";
-//$mypassword="";
 $db_name="emr_system";
 $table_name="members";
 
@@ -22,13 +20,13 @@ $result=mysql_query($sql);
 $rowcount=mysql_num_rows($result);
 
 if($rowcount==1){
+  $_SESSION["name"]= $uname;
   //session_register("uname");
   //session_register("upassword");
-  //header("location:successful.php");
-  echo "LOGIN SUCCESS";
+  header("location:successful.php");
+  //echo "LOGIN SUCCESS";
 }
 else{
   echo "Wrong Username or Password";
 }
-ob_end_flush();
  ?>
