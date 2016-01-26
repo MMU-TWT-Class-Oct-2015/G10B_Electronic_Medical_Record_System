@@ -9,12 +9,13 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $uname=$_POST['uname'];
 $upassword=$_POST['upassword'];
+$utype=$_POST['utype'];
 
 $uname = stripslashes($uname);
 $upassword = stripslashes($upassword);
 $uname = mysql_real_escape_string($uname);
 $upassword = mysql_real_escape_string($upassword);
-$sql="SELECT * FROM $table_name WHERE username='$uname' and password='$upassword';";
+$sql="SELECT * FROM $table_name WHERE username='$uname' and password='$upassword' and type='$utype';";
 $result=mysql_query($sql);
 
 $rowcount=mysql_num_rows($result);
