@@ -1,11 +1,14 @@
 <?php
 session_start();
-if(!session_name("uname")){
-header("location:main.php");
+if(!$_SESSION["name"]){
+  header("location:main.php");
+}
+else{
+  header("location:test.php");
 }
 ?>
-<html>
+<!--<html>
   <body>
     <h1>Login Successful</h1>
   </body>
-</html>
+</html>-->
