@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="main1.css" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test Navigation</title>
 </head>
 <h1>Welcome to Electronic Medical Record</h1>
