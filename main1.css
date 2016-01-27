@@ -1,0 +1,66 @@
+#header {
+position: fixed;
+width: 100%;
+color: black;
+height: 2%;
+text-align: center;
+padding-top: 1px;
+background-color: #888888;
+
+}
+h1{
+  padding-top:  none;
+  margin:auto;
+  padding-left: 35%;
+}
+#header a {
+font-size: 14px;
+padding-left: 15px;
+padding-right: 15px;
+color: black;
+text-decoration: none;
+}
+
+#header a:hover {
+color: #66ef66;
+}
+body {
+padding: 0;
+margin: 0;
+}
+p{
+  padding-top: 100px;
+  width:80%;
+  text-align:left;
+}
+ul{
+      padding: 0;
+      list-style: none;
+      background: #888888;
+  }
+  ul li{
+      display: inline-block;
+      position: relative;
+      line-height: 21px;
+      text-align: left;
+  }
+  ul li a{
+      display: block;
+      padding: 8px 25px;
+      color: #333;
+      text-decoration: none;
+  }
+  ul li ul.dropdown{
+      min-width: 125px; /* Set width of the dropdown */
+      background: #888888;
+      display: none;
+      position: absolute;
+
+      left: 0;
+  }
+  ul li:hover ul.dropdown{
+      display: block;	/* Display the dropdown */
+  }
+  ul li ul.dropdown li{
+      display: block;
+  }
