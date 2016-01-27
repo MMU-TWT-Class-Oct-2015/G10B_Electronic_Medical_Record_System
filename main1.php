@@ -1,7 +1,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="main1.css" type="text/css"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test Navigation</title>
 </head>
 <h1>Welcome to Electronic Medical Record</h1>
@@ -13,7 +12,7 @@
         <li>
             <a href="#">Patient Record &#9662;</a>
             <ul class="dropdown">
-                <li><a href="#">Add Record</a></li>
+                <li><a href="#">Add new Record</a></li>
                 <li><a href="#">View Record</a></li>
                 <li><a href="#">Update Record</a></li>
                 <li><a href="#">Delete Record</a></li>
