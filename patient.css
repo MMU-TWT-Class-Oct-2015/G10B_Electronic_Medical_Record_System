@@ -1,3 +1,19 @@
+/*header title*/
+#title
+{
+  position:top;
+  padding-left:30%;
+  height:50px;
+  background-color:none;
+}
+#navigation
+{
+  height:50px;
+    background-color:none;
+    position:top;
+}
+/*header title*/
+/*navigation*/
 ul {
     list-style-type: none;
     margin: 0;
@@ -5,8 +21,9 @@ ul {
     overflow: hidden;
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
-    width:400px;
-    margin-left:400px;
+    width:600px;
+    margin:auto;
+    border-radius:6px;
 
 }
 
@@ -23,13 +40,15 @@ li a {
 }
 
 li a:hover:not(.active) {
-    background-color: #ddd;
+    background-color:none;
+    color:lightblue;
 }
 
 li a.active {
     color: white;
     background-color: #4CAF50;
 }
+/*navigation*/
 
 /*fieldset*/
 #legend
@@ -38,20 +57,17 @@ li a.active {
   font-size:20px;
 
 }
+/*fieldset*/
 
-div
-{
-  margin-top:100px;
-
-}
 
 /*body*/
 body
 {
-    background-image:url("background_image.jpg");
+    background-image:url("image/background_image1.jpg");
     background-size:cover;
     background-repeat: no-repeat;
 }
+/*body*/
 
 /* input box style*/
   .textbox {
@@ -75,3 +91,24 @@ body
     -moz-box-shadow: 0px 0px 8px #848484;
     -webkit-box-shadow: 0px 0px 8px #848484;
 }
+/* input box style*/
+/*table*/
+
+#table
+{
+  background-color:none;
+  margin:30px;
+}
+
+td
+{
+  align:right;
+}
+/*table*/
+/*button*/
+#button
+{
+  font-family:sans-serif;
+  height:30px;
+}
+/*button*/
