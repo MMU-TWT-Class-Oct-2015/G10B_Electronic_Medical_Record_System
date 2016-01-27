@@ -25,7 +25,7 @@
       <tr>
         <td>&nbsp;</td>
         <!--admin = 1 staff = 0-->
-        <td><input type="radio" name="utype" value="1">Admin &nbsp; </input>
+        <td><input type="radio" name="utype" value="1" checked>Admin &nbsp; </input>
             <input type="radio" name="utype" value="0">Staff </input>
           </td>
       </tr>

@@ -12,23 +12,33 @@ $uname=$_POST['uname'];
 $upassword=$_POST['upassword'];
 $utype=$_POST['utype'];
 
-$uname = stripslashes($uname);
-$upassword = stripslashes($upassword);
-$uname = mysql_real_escape_string($uname);
-$upassword = mysql_real_escape_string($upassword);
-$sql="SELECT * FROM $table_name WHERE username='$uname' and password='$upassword' and type='$utype';";
-$result=mysql_query($sql);
-
-$rowcount=mysql_num_rows($result);
-
-if($rowcount==1){
-  $_SESSION["name"]= $uname;
-  //session_register("uname");
-  //session_register("upassword");
-  header("location:successful.php");
-  //echo "LOGIN SUCCESS";
+if($uname == "" || $upassword == "" || $utype == ""){
+  echo "<script type='text/javascript'>
+            window.alert('Please enter your username and password!');
+            window.location.href = 'main.php';
+        </script>";
+  //header("location:main.php");
 }
 else{
-  echo "Wrong Username or Password";
+
+  $uname = stripslashes($uname);
+  $upassword = stripslashes($upassword);
+  $uname = mysql_real_escape_string($uname);
+  $upassword = mysql_real_escape_string($upassword);
+  $sql="SELECT * FROM $table_name WHERE username='$uname' and password='$upassword' and type='$utype';";
+  $result=mysql_query($sql);
+
+  $rowcount=mysql_num_rows($result);
+
+  if($rowcount==1){
+    $_SESSION["name"]= $uname;
+    //session_register("uname");
+    //session_register("upassword");
+    header("location:successful.php");
+    //echo "LOGIN SUCCESS";
+  }
+  else{
+    echo "Wrong Username or Password";
+  }
 }
  ?>
