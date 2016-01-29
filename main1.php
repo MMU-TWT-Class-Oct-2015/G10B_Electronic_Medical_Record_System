@@ -7,29 +7,19 @@ if($_SESSION["name"] == ""){
 ?>
 
 <html>
-<<<<<<< HEAD
+
   <head>
     <link rel="stylesheet" href="main1.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EMR MENU</title>
   </head>
-=======
-<head>
-<link rel="stylesheet" href="main1.css" type="text/css"/>
-<<<<<<< HEAD
-<meta name="viewport" content="width=device-width, initial-scale=1">
-=======
->>>>>>> 408faa162dcdc56b9d5e77d9fce81ed5e6b32424
-<title>Test Navigation</title>
-</head>
-<h1>Welcome to Electronic Medical Record</h1>
->>>>>>> dc8bf28fa1fa1752d8ededa69a7d74acaf3a2ff7
 
 <body>
     <ul>
         <li><a1 class="navbar-brand">Welcome <?php echo $_SESSION["name"];?></a1></li>
         <li><a>Home</a></li>
         <li>
-<<<<<<< HEAD
+
           <div class="dropdown">
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
@@ -39,19 +29,6 @@ if($_SESSION["name"] == ""){
               <a href="#">Delete Record</a>
             </div>
           </div>
-=======
-            <a href="#">Patient Record &#9662;</a>
-            <ul class="dropdown">
-<<<<<<< HEAD
-                <li><a href="#">Add Record</a></li>
-=======
-                <li><a href="#">Add new Record</a></li>
->>>>>>> 408faa162dcdc56b9d5e77d9fce81ed5e6b32424
-                <li><a href="#">View Record</a></li>
-                <li><a href="#">Update Record</a></li>
-                <li><a href="#">Delete Record</a></li>
-            </ul>
->>>>>>> dc8bf28fa1fa1752d8ededa69a7d74acaf3a2ff7
         </li>
 
         <li>
