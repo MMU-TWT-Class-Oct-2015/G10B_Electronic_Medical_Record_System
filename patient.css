@@ -11,6 +11,7 @@
   height:50px;
     background-color:none;
     position:top;
+    margin-top:20px;
 }
 /*header title*/
 /*navigation*/
@@ -57,6 +58,7 @@ li a.active {
   font-size:20px;
 
 }
+
 /*fieldset*/
 
 
@@ -66,6 +68,9 @@ body
     background-image:url("image/background_image1.jpg");
     background-size:cover;
     background-repeat: no-repeat;
+    margin:0;
+	  padding:0;
+	  height:100%;
 }
 /*body*/
 
@@ -92,12 +97,25 @@ body
     -webkit-box-shadow: 0px 0px 8px #848484;
 }
 /* input box style*/
+
 /*table*/
 
 #table
 {
   background-color:none;
-  margin:30px;
+
+
+}
+#table2
+{
+
+    background-color:none;
+    width:32%;
+    top:170px;
+    right:230px;
+    position:absolute;
+
+
 }
 
 td
@@ -105,10 +123,77 @@ td
   align:right;
 }
 /*table*/
+
+
 /*button*/
 #button
 {
   font-family:sans-serif;
   height:30px;
+  margin-left:20px;
+  margin-bottom:30px;
+  
+  width:100px;
 }
+
 /*button*/
+
+/*radio button*/
+
+#race
+{
+  height:30px;
+  width:285px;
+}
+/*radio button*/
+
+#address
+{
+  width: 400px;
+	height: 100px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+}
+
+#systoms
+{
+  width: 400px;
+	height: 100px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+}
+
+
+/*footer*/
+#footer
+{
+  font-family:sans-serif;
+  font-style:italic;
+  font-size:15pt;
+  height:100px;
+  width:100%;
+  position:relative;
+	bottom:0;
+	left:0;
+  color:#A4A4A4;
+  background-color:none;
+  align:bottom;
+  margin-top:5%;
+
+
+}
+
+#content
+{
+  padding-left:40%;
+  position:relative;
+  align-content: center;
+  padding-top:20px;
+}
+#image
+{
+  width:10px;
+  height:10px;
+}
+
+/*footer*/
