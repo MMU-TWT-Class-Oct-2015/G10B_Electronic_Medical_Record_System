@@ -43,7 +43,10 @@ ul{
       position: relative;
       line-height: 21px;
       text-align: left;
+<<<<<<< HEAD
+=======
       
+>>>>>>> 408faa162dcdc56b9d5e77d9fce81ed5e6b32424
   }
   ul li a{
       display: block;
@@ -56,6 +59,10 @@ ul{
       background: #888888;
       display: none;
       position: absolute;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 408faa162dcdc56b9d5e77d9fce81ed5e6b32424
       left: 0;
   }
   ul li:hover ul.dropdown{
