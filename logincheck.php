@@ -17,7 +17,6 @@ if($uname == "" || $upassword == "" || $utype == ""){
             window.alert('Please enter your username and password!');
             window.location.href = 'main.php';
         </script>";
-  //header("location:main.php");
 }
 else{
 
@@ -32,13 +31,13 @@ else{
 
   if($rowcount==1){
     $_SESSION["name"]= $uname;
-    //session_register("uname");
-    //session_register("upassword");
     header("location:successful.php");
-    //echo "LOGIN SUCCESS";
   }
   else{
-    echo "Wrong Username or Password";
+    echo "<script type='text/javascript'>
+              window.alert('Wrong username or password!');
+              window.location.href = 'main.php';
+          </script>";
   }
 }
  ?>

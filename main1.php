@@ -1,52 +1,73 @@
+<?php
+session_start();
+
+if($_SESSION["name"] == ""){
+  header("location:main.php");
+}
+?>
+
 <html>
-<head>
-<link rel="stylesheet" href="main1.css" type="text/css"/>
-<title>Test Navigation</title>
-</head>
-<h1>Welcome to Electronic Medical Record</h1>
+  <head>
+    <link rel="stylesheet" href="main1.css" type="text/css"/>
+    <title>EMR MENU</title>
+  </head>
 
 <body>
-  <div id ="header">
     <ul>
-        <li><a href="#">Home</a></li>
+        <li><a1 class="navbar-brand">Welcome <?php echo $_SESSION["name"];?></a1></li>
+        <li><a>Home</a></li>
         <li>
-            <a href="#">Patient Record &#9662;</a>
-            <ul class="dropdown">
-                <li><a href="#">Add new Record</a></li>
-                <li><a href="#">View Record</a></li>
-                <li><a href="#">Update Record</a></li>
-                <li><a href="#">Delete Record</a></li>
-            </ul>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Patient Record</a>
+            <div class="dropdown-content">
+              <a href="#">Add new Record</a>
+              <a href="#">View Record</a>
+              <a href="#">Update Record</a>
+              <a href="#">Delete Record</a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Patient Profile</a>
+            <div class="dropdown-content">
+              <a href="#">Add new Profile</a>
+              <a href="#">View Profile</a>
+              <a href="#">Update Profile</a>
+              <a href="#">Delete Profile</a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Insurance Profile</a>
+            <div class="dropdown-content">
+              <a href="#">View Insurance Profile</a>
+            </div>
+          </div>
+        </li>
+
+      <ul style="float:right;list-style-type:none;">
+        <li><a1 class="navbar-brand">Electronic Medical Record System</a1></li>
+
+        <li>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Human Resource System</a>
+            <div class="dropdown-content">
+              <a href="#">Add new User</a>
+              <a href="#">View User</a>
+              <a href="#">Update User</a>
+              <a href="#">Delete User</a>
+            </div>
+          </div>
         </li>
         <li>
-            <a href="#">Patient Profile &#9662;</a>
-            <ul class="dropdown">
-                <li><a href="#">Add Profile</a></li>
-                <li><a href="#">View Profile</a></li>
-                <li><a href="#">Update Profile</a></li>
-                <li><a href="#">Delete Profile</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">Insurance Profile &#9662;</a>
-            <ul class="dropdown">
-                <li><a href="#">View Insurance Profile</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">Human Resource System &#9662;</a>
-            <ul class="dropdown">
-                <li><a href="#">Add User</a></li>
-                <li><a href="#">View User</a></li>
-                <li><a href="#">Update User</a></li>
-                <li><a href="#">Delete User</a></li>
-            </ul>
-        </li>
+            <a href="logout.php"> Logout  </a>
+      </li>
+      </ul>
     </ul>
-  </div>
-
-
-
     <p id = "historyid">Hospital Sultanah Aminah is currently the largest government hospital in Johor Bahru.
       Hospital Sultanah Aminah had third class wards constructed from wood since 1882.
        When these wards became old and overcrowded with patients, a new building was planned to replace these old wards.

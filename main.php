@@ -14,12 +14,12 @@
 
       <tr>
         <td width=78 align=right>Username: </td>
-        <td width=294><input name="uname" type="text" id="uname"></td>
+        <td width=294><input name="uname" type="text" id="iduname"></td>
       </tr>
 
       <tr>
         <td width=78 align=right>Password: </td>
-        <td width=294><input name="upassword" type="password" id="upassword"></td>
+        <td width=294><input name="upassword" type="password" id="idupassword"></td>
       </tr>
 
       <tr>
