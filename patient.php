@@ -8,6 +8,7 @@
 
   </head>
   <body>
+
     <div id="title">
       <h1>Eletronic Medical Record System</h1>
     </div>
@@ -24,7 +25,7 @@
     <div id="table">
     <fieldset style="width:90%;">
     <table>
-    <form name="patientfrm" class="" action="" method="post">
+    <form name="patientfrm" class="" action="add_patient_profile.php" method="post">
 
         <legend id="legend">Patient Profile</legend>
 
@@ -57,7 +58,7 @@
     </tr>
 
     <tr>
-      <td><input type="text" class="textbox" name="region" id="region" placeholder="Religion" required/></td>
+      <td><input type="text" class="textbox" name="religion" id="religion" placeholder="Religion" required/></td>
       <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
       <td><textarea name="address" class="textbox" id="address" rows="4" cols="50" maxlength="200" placeholder="Address.." required></textarea></td>
     </tr>
