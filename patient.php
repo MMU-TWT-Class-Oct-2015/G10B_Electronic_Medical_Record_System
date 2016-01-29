@@ -25,7 +25,7 @@
     <div id="table">
     <fieldset style="width:90%; height:320px; margin-left:30px;">
     <table>
-    <form name="patientfrm" class="" action="" method="post">
+    <form name="patientfrm" class="" action="add_patient_profile.php" method="post">
 
         <legend id="legend">New Patient Profile</legend>
 
@@ -65,7 +65,7 @@
     </tr>
 
     <tr>
-      <td><input type="text" class="textbox" name="region" id="region" placeholder="Religion" required/></td>
+      <td><input type="text" class="textbox" name="religion" id="religion" placeholder="Religion" required/></td>
       <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
       <td><input type="text" name="diagnosis" class="textbox" id="diagnosis" placeholder="Diagnosis" required></td>
     </tr>
