@@ -72,6 +72,11 @@
 
     <tr>
       <td><input type="text" class="textbox" name="insurance" id="insurance" placeholder="Insurance Company" required></td>
+<<<<<<< HEAD
+=======
+      <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+      <td><textarea  name="symptoms" id="symptoms"  class="textbox" rows="4" cols="50" maxlength="100" placeholder="Patient symptoms" required></textarea></td>
+>>>>>>> origin/master
     </tr>
 
 

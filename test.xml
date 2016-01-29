@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xsl-stylesheet type= "text/xsl" href= "test.xsl"?>
+
+<profile>
+	<doctor>
+    <image>http://pickaface.net/includes/themes/clean/img/slide2.png</image>
+		<id>1234567</id>
+		<name>Chong Yee Soon</name>
+		<speciality>IT</speciality>
+	</doctor>
+	<doctor>
+                <image>http://usercontent2.hubimg.com/10577727_f260.jpg</image>
+		<id>7654321</id>
+		<name>Soon Yee Chong</name>
+		<speciality>TI</speciality>
+	</doctor>
+</profile>
