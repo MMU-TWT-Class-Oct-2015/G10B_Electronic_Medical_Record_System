@@ -60,3 +60,44 @@ p{
   width:80%;
   text-align:left;
 }
+<<<<<<< HEAD
+=======
+ul{
+      padding: 0;
+      list-style: none;
+      background: #888888;
+  }
+  ul li{
+      display: inline-block;
+      position: relative;
+      line-height: 21px;
+      text-align: left;
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 408faa162dcdc56b9d5e77d9fce81ed5e6b32424
+  }
+  ul li a{
+      display: block;
+      padding: 8px 25px;
+      color: #333;
+      text-decoration: none;
+  }
+  ul li ul.dropdown{
+      min-width: 125px; /* Set width of the dropdown */
+      background: #888888;
+      display: none;
+      position: absolute;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 408faa162dcdc56b9d5e77d9fce81ed5e6b32424
+      left: 0;
+  }
+  ul li:hover ul.dropdown{
+      display: block;	/* Display the dropdown */
+  }
+  ul li ul.dropdown li{
+      display: block;
+  }
+>>>>>>> dc8bf28fa1fa1752d8ededa69a7d74acaf3a2ff7
