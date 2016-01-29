@@ -64,7 +64,7 @@
     <tr>
       <td><input type="text" class="textbox" name="insurance" id="insurance" placeholder="Insurance Company" required></td>
       <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-      <td><textarea  name="systoms" id="systoms"  class="textbox" rows="4" cols="50" maxlength="100" placeholder="Patient Systoms" required></textarea></td>
+      <td><textarea  name="symptoms" id="symptoms"  class="textbox" rows="4" cols="50" maxlength="100" placeholder="Patient symptoms" required></textarea></td>
     </tr>
     <tr>
       <td><input type="text" name="diagnosis" class="textbox" id="diagnosis" placeholder="Diagnosis" required></td>
