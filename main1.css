@@ -95,3 +95,92 @@ li a:hover, .dropdown:hover .dropbtn {
   text-align: left;
   height: 100%;
 }
+
+/*patient profile css*/
+.textbox {
+  border: 1px solid #c4c4c4;
+  height: 25px;
+  width: 275px;
+  font-size: 13px;
+  padding: 4px 4px 4px 4px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: 0px 0px 8px #d9d9d9;
+  -moz-box-shadow: 0px 0px 8px #d9d9d9;
+  -webkit-box-shadow: 0px 0px 8px #d9d9d9;
+}
+
+.textbox:focus {
+  outline: none;
+  border: 1px solid #848484;
+  box-shadow: 0px 0px 8px #848484;
+  -moz-box-shadow: 0px 0px 8px #848484;
+  -webkit-box-shadow: 0px 0px 8px #848484;
+}
+
+
+#table
+{
+background-color:none;
+color: white;
+
+}
+
+#button
+{
+font-family:sans-serif;
+height:30px;
+margin-left:20px;
+margin-bottom:30px;
+width:100px;
+}
+
+
+#race
+{
+height:30px;
+width:285px;
+}
+
+#address
+{
+width: 400px;
+height: 100px;
+border: 3px solid #cccccc;
+padding: 5px;
+}
+.subtn{
+  position:absolute;;
+  margin-top: 250px;
+  margin-left: 200px;
+}
+#footer
+{
+font-family:sans-serif;
+font-style:italic;
+font-size:15pt;
+height:100px;
+width:100%;
+position:relative;
+bottom:0;
+left:0;
+color:#A4A4A4;
+background-color:none;
+align:bottom;
+margin-top:5%;
+
+
+}
+
+#content
+{
+padding-left:40%;
+position:relative;
+align-content: center;
+padding-top:20px;
+}
+
+.wt{
+  color: white;
+}

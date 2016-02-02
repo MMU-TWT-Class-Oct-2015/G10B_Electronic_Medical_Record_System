@@ -55,7 +55,7 @@ if( mysql_num_rows( $inresult )==0 ){
           <div class="dropdown">
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
-              <a href="#">Add new Profile</a>
+              <a href="patient.php">Add new Profile</a>
               <a href="#">View Profile</a>
               <a href="#">Update Profile</a>
               <a href="#">Delete Profile</a>

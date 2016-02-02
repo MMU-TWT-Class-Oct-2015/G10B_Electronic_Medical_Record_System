@@ -16,8 +16,7 @@ $gender=$_POST['gender'];
 $religion=$_POST['religion'];
 $address=$_POST['address'];
 $insurance=$_POST['insurance'];
-$symptoms=$_POST['symptoms'];
-;$treatment=$_POST['treatment'];
+
 
   $form_data = array(
       'userId' => 1,
