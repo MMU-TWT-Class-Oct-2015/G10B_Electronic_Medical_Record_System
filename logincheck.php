@@ -1,5 +1,5 @@
 <?php
-//$_SESSION['name']= $_POST['uname'];
+
 session_start();
 $host="localhost";
 $db_name="emr_system";

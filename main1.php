@@ -4,6 +4,29 @@ session_start();
 if($_SESSION["name"] == ""){
   header("location:main.php");
 }
+$host="localhost";
+$db_name="emr_system";
+$table_name="members";
+
+mysql_connect("$host", "root", "")or die("cannot connect");
+mysql_select_db("$db_name")or die("cannot select DB");
+
+$cname=$_SESSION["name"];
+//$sql="SELECT * FROM members WHERE username='$cname'";
+$sql="SELECT doctor.doctorId,doctor.doctorName,doctor.speciality FROM doctor INNER JOIN members ON doctor.doctorId=members.userId WHERE username='$cname'";
+$inresult=mysql_query($sql);
+
+if( mysql_num_rows( $inresult )==0 ){
+        echo '<tr><td colspan="4">No Rows Returned</td></tr>';
+      }else{
+        while( $row = mysql_fetch_assoc( $inresult ) ){
+          $id=$row['doctorId'];
+          $drname=$row['doctorName'];
+          $drspecial=$row['speciality'];
+        }
+      }
+
+
 ?>
 
 <html>
@@ -16,7 +39,7 @@ if($_SESSION["name"] == ""){
 
 <body>
     <ul>
-        <li><a1 class="navbar-brand">Welcome <?php echo $_SESSION["name"];?></a1></li>
+        <li><a1>Welcome <?php echo $_SESSION["name"];?></a1></li>
         <li><a>Home</a></li>
         <li>
 
@@ -53,7 +76,7 @@ if($_SESSION["name"] == ""){
         </li>
 
       <ul style="float:right;list-style-type:none;">
-        <li><a1 class="navbar-brand">Electronic Medical Record System</a1></li>
+        <li><a1>Electronic Medical Record System</a1></li>
 
         <li>
           <div class="dropdown">
@@ -71,16 +94,34 @@ if($_SESSION["name"] == ""){
       </li>
       </ul>
     </ul>
-    <p id = "historyid">Hospital Sultanah Aminah is currently the largest government hospital in Johor Bahru.
-      Hospital Sultanah Aminah had third class wards constructed from wood since 1882.
-       When these wards became old and overcrowded with patients, a new building was planned to replace these old wards.
-        The new building construction began in 1938 and completed in 1941.
-        his 5 storey building can accomodate 857 beds. The building has two wings in the shape of "T" containing 80 beds in each ward.
-        In the center, there are lifts and kitchen for patients. Operation theater is located in first floor and the top floor was specially for TB patients.
-      Accident and Emergency Department used to be located at ground floor of the main building but in 1974 it was shifted to an old building located 300 metres from the main building.
-      Outpatient Department was also located at this building. This building is also not sufficient to provide comfort to the patient.
-       Thus, as an interim solution to improve services in this section, an accident and emergency department was built on the ground floor of the new Operation Theatre complex.
-        It was first used in 27th. May, 1985. This place will continue to be used until the proposed Polyclinic project in Jalan Dato' Wilson which will have a new accident and emergency department is fully implemented.</p>
+
+    <div class="tprofile">
+      <table class = "profile">
+        <tr>
+          <td>
+            Doctor ID: <?php echo $id;?>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Name: <?php echo $drname;?>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Speciality: <?php echo $drspecial;?>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+<!--EDIT YOUR CODE HERE ------------------------------------------>
+    <div class="conform">
+
+       hello
+    </div>
 
 </body>
 </html>
