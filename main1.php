@@ -25,12 +25,9 @@ if( mysql_num_rows( $inresult )==0 ){
           $drspecial=$row['speciality'];
         }
       }
-
-
 ?>
 
 <html>
-
   <head>
     <link rel="stylesheet" href="main1.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,15 +59,6 @@ if( mysql_num_rows( $inresult )==0 ){
               <a href="#">View Profile</a>
               <a href="#">Update Profile</a>
               <a href="#">Delete Profile</a>
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <div class="dropdown">
-            <a href="#" class="dropbtn">Insurance Profile</a>
-            <div class="dropdown-content">
-              <a href="#">View Insurance Profile</a>
             </div>
           </div>
         </li>
@@ -119,8 +107,25 @@ if( mysql_num_rows( $inresult )==0 ){
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
+      <div class="para">
+        <h1>Brief Information:</h1>
+        <p>This is an Electronic Medical Record System. This medical record is a
+          confidential record that is kept for each patient by a healthcare
+          professional or organization. It contains the patient's personal details
+           (such as name, address, date of birth), a summary of the patient's
+           medical history, and documentation of each event, including symptoms,
+           diagnosis, treatment and outcome.
 
-       hello
+           <br><br>
+           This project is done by 4 person as named below:
+           <ol>
+             <li>Kelvin</li>
+             <li>Tony</li>
+             <li>Chong</li>
+             <li>Boon</li>
+           </ol>
+        </p>
+      </div>
     </div>
 
 </body>

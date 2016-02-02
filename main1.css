@@ -5,7 +5,7 @@ ul {
     background-color: #333;
 }
 
-li {
+ul li {
     float: left;
 }
 
@@ -81,11 +81,17 @@ li a:hover, .dropdown:hover .dropbtn {
 }
 
 .conform{
-  color: red;
+  color: white;
   background-color: #333;
   width:69%;
   height: 100%;
   float: right;
   positon: absolute;
+}
 
+.para{
+  margin-left:30px;
+  width:90%;
+  text-align: left;
+  height: 100%;
 }
