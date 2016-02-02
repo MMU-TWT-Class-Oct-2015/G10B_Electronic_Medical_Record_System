@@ -1,4 +1,10 @@
 <?php
+$host="localhost";
+$db_name="emr_system";
+$table_name="patient";
+
+$con=mysql_connect("$host", "root", "")or die("cannot connect");
+mysql_select_db("$db_name")or die("cannot select DB");
 
 $pname=$_POST['pname'];
 $ic=$_POST['ic'];
@@ -11,27 +17,35 @@ $religion=$_POST['religion'];
 $address=$_POST['address'];
 $insurance=$_POST['insurance'];
 $symptoms=$_POST['symptoms'];
-$diagnosis=$_POST['diagnosis'];
-$treatment=$_POST['treatment'];
+;$treatment=$_POST['treatment'];
+
+  $form_data = array(
+      'userId' => 1,
+      'patientId' => NULL,
+      'patientName' => $pname,
+  'patientPhoneNo' => $phonenumber,
+      'patientIc' => $ic,
+      'patientAddress' => $address,
+    'Dob' => $birthday,
+      'patientGender' => $gender,
+      'race' => $race,
+      'religion' => $religion,
+      'insurance' => $insurance,
+  );
+
+  function dbRowInsert($table_name, $form_data)
+  {
+      $fields = array_keys($form_data);
+      $sql = "INSERT INTO ".$table_name." (`".implode('`,`', $fields)."`)VALUES('".implode("','", $form_data)."')";
+        return mysql_query($sql);
+  }
+
+mysql_select_db("$db_name");
+
+dbRowInsert('patient',$form_data);
 
 
 
-if (!$connect = mysql_connect("localhost", "root", "")) {
-  die(mysql_error());
-}
-
-if (!mysql_select_db("TWT_09_01", $connect)){
-  $sql = "CREATE DATABASE emr_system;";
-  mysql_query($sql) or die(mysql_error());
-  mysql_select_db("emr_system", $connect);
 
 
-extract($_POST);
-$sql="INSERT INTO 'patient' ('userId','patientName','patientPhoneNo','patientIc','patientAddress','Dob','recordId','patientGender','race','religion') VALUES ('','$pname,'$phonenumber','$ic','$address','$birthday','','male','$race','$religion');";
-mysql_query($sql) or die(mysql_error());
-mysql_close($connect);
-
-
-
-}
  ?>
