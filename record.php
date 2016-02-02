@@ -28,8 +28,9 @@ if( mysql_num_rows( $inresult )==0 ){
 ?>
 
 <html>
+
   <head>
-    <link rel="stylesheet" href="main1.css" type="text/css"/>
+    <link rel="stylesheet" href="record.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EMR MENU</title>
   </head>
@@ -43,7 +44,7 @@ if( mysql_num_rows( $inresult )==0 ){
           <div class="dropdown">
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
-              <a href="record.php">Add new Record</a>
+              <a href="#">Add new Record</a>
               <a href="#">View Record</a>
               <a href="#">Update Record</a>
               <a href="#">Delete Record</a>
@@ -105,27 +106,36 @@ if( mysql_num_rows( $inresult )==0 ){
       </table>
     </div>
 
+
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
-      <div class="para">
-        <h1>Brief Information:</h1>
-        <p>This is an Electronic Medical Record System. This medical record is a
-          confidential record that is kept for each patient by a healthcare
-          professional or organization. It contains the patient's personal details
-           (such as name, address, date of birth), a summary of the patient's
-           medical history, and documentation of each event, including symptoms,
-           diagnosis, treatment and outcome.
-
-           <br><br>
-           This project is done by 4 person as named below:
-           <ol>
-             <li>Kelvin</li>
-             <li>Tony</li>
-             <li>Chong</li>
-             <li>Boon</li>
-           </ol>
-        </p>
-      </div>
+        <form action="add_record_profile.php" method="post">
+          <fieldset style="width:90%; height:auto; margin-left:30px;">
+          <legend id="legend">New Patient Record</legend>
+          <table id="recordsize">
+            <tr>
+              <td><input type="text" class="textbox" name="patientid" id="pid" placeholder="PatientID" required/></td>
+            </tr>
+            <tr>
+              <td><textarea name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required></textarea></td>
+            </tr>
+            <tr>
+                <td><textarea name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required></textarea></td>
+            </tr>
+            <tr>
+              <td><textarea name="symptoms" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required></textarea></td>
+            </tr>
+          </table>
+        </fieldset>
+        <table align="center">
+          <tr>
+            <td>
+             <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>&nbsp &nbsp &nbsp &nbsp
+             <input style="background-color:#FA5858;" id="button" type="reset" name="resetbtn"  value="Reset"/>
+            </td>
+          </tr>
+      </table>
+        </form>
     </div>
 
 </body>

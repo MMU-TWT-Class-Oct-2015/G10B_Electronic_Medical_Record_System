@@ -38,13 +38,13 @@ if( mysql_num_rows( $inresult )==0 ){
 <body>
     <ul>
         <li><a1>Welcome <?php echo $_SESSION["name"];?></a1></li>
-        <li><a>Home</a></li>
+        <li><a href="main1.php">Home</a></li>
         <li>
 
           <div class="dropdown">
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
-              <a href="#">Add new Record</a>
+              <a href="record.php">Add new Record</a>
               <a href="#">View Record</a>
               <a href="#">Update Record</a>
               <a href="#">Delete Record</a>
