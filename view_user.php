@@ -8,7 +8,6 @@ $host="localhost";
 $db_name="emr_system";
 $table_name="members";
 
-
 mysql_connect("$host", "root", "")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
@@ -27,22 +26,12 @@ if( mysql_num_rows( $inresult )==0 ){
           $ppicture=$row['picture'];
         }
       }
-
-      if(isset($_POST['submitbtn']))
-      {
-        echo "
-            <script type=\"text/javascript\">
-            window.alert('Your form is submit successfully!');
-            window.location.href = 'main1.php';
-            </script>
-        ";
-
-     }
 ?>
 
 <html>
+
   <head>
-    <link rel="stylesheet" href="patient.css" type="text/css"/>
+    <link rel="stylesheet" href="view_user.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EMR MENU</title>
   </head>
@@ -70,8 +59,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
               <a href="view_patient1.php">View Profile</a>
-              <a href="view_patient1.php">Update Profile</a>
-              <a href="view_patient1.php">Delete Profile</a>
+              <a href="#">Update Profile</a>
+              <a href="#">Delete Profile</a>
             </div>
           </div>
         </li>
@@ -151,79 +140,51 @@ if( mysql_num_rows( $inresult )==0 ){
           </table>
         </div>
         </fieldset>
+
     </div>
 
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
-      <div id="table">
-      <fieldset style="width:90%; height:320px; margin-left:30px;">
-      <table style="float:left" >
-      <form action="add_patient_profile.php" method="post">
-      <legend id="legend">New Patient Profile</legend>
+      <div class="viewtable">
+        <?php
 
-      <tr>
-        <td><input type="text" class="textbox" name="pname" id="ppname" placeholder="Name" required/></td>
+        $i=0;
+      $query = "SELECT doctorName,ic,gender,phoneNo,email,speciality,picture FROM members order by doctorName";
 
-      </tr>
-<tr></tr><tr></tr>
-      <tr>
-        <td><input type="text" name="age"class="textbox" id="age" placeholder="Age" required/></td>
-      </tr>
-<tr></tr><tr></tr>
-      <tr>
-        <td><input type="text" class="textbox" name="phonenumber" id="phonenumber" placeholder="Contact Number" required/></td>
-      </tr>
-<tr></tr><tr></tr>
-      <tr>
-        <td>
-          <select id="race" name="race" class="textbox" required>
-            <option value="" selected>Race:</option>
-            <option value="cina">Cina</option>
-            <option value="malay">Malay</option>
-            <option value="india">Indian</option>
-            <option value="others">others</option>
-          </select>
-        </td>
-      </tr>
-<tr></tr><tr></tr>
-      <tr>
-        <td><input type="text" class="textbox" name="religion" id="religion" placeholder="Religion" required/></td>
-      </tr>
-<tr></tr><tr></tr>
-      <tr>
-        <td><input type="text" class="textbox" name="insurance" id="insurance" placeholder="Insurance Company" required></td>
-      </tr>
+      $result = mysql_query($query) or die(mysql_error());
 
-      <table class="wt" style="float:right">
-        <tr>
-          <td><input type="text" class="textbox" name="ic" id="ic" placeholder="IC/Passport" required/></td>
-        </tr>
-        <tr>
-          <td>Date of birth:<br><input type="date" name="birthday" class="textbox" id="birthday"  required></td>
 
-        </tr>
-        <tr>
-          <td>Gender:<input type="radio" name="gender" value="m">Male<input type="radio" name="gender" value="f">Female</td>
-        </tr>
-        <tr>
-          <td><textarea name="address" class="textbox" id="address" rows="4" cols="50" maxlength="500" placeholder="Address.." required></textarea></td>
+      if (mysql_num_rows($result) > 0) {
+         echo "<div class=\"scrollit\"><table class=\"table-style-one\">
+         <tr>
+         <th>No</th>
+         <th>Doctor Name</th>
+         <th>IC No</th>
+         <th>Gender</th>
+         <th>Phone No.</th>
+         <th>Email</th>
+         <th>Speciality</th>
+         <th>Profile Picture</th>
 
-        </tr>
-      </table>
-       </table>
-       <table class="subtn">
-         <tr><td>
-       <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-       <input style="background-color:#FA5858;" id="button" type="reset" name="resetbtn"  value="Reset"/>
-</td>
-     </tr>
-     </table>
+
+         </tr>";
+
+         while($row1 = mysql_fetch_assoc($result)) {
+
+             echo "<tr><td>" .++$i."</td><td>" . $row1["doctorName"]. "</td><td> " .
+             $row1["ic"]. "</td><td> " . $row1["gender"]. "</td><td> " . $row1["phoneNo"].
+              "</td><td> " . $row1["email"]. "</td><td> " . $row1["speciality"].
+             "</td><td><img width='145' height='150px' src=" . $row1["picture"]. "></td></tr>";
+         }
+         echo "</table></div>";
+      } else {
+         echo "No record!";
+      }
+
+
+      ?>
       </div>
-
-
-
-  </form>
     </div>
 
 </body>

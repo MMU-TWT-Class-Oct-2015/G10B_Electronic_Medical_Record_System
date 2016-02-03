@@ -68,7 +68,7 @@ li a:hover, .dropdown:hover .dropbtn {
 .profile{
   color: white;
   text-align: center;
-  background-color: silver;
+  background-color:none;
   position: relative;
   z-index: 0;
   left:10px;

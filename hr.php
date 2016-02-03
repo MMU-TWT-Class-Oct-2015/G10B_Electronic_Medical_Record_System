@@ -13,7 +13,7 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $cname=$_SESSION["name"];
 //$sql="SELECT * FROM members WHERE username='$cname'";
-$sql="SELECT userId, doctorName, speciality FROM members WHERE username='$cname'";
+$sql="SELECT userId, doctorName, speciality,picture FROM members WHERE username='$cname'";
 $inresult=mysql_query($sql);
 
 if( mysql_num_rows( $inresult )==0 ){
@@ -23,6 +23,7 @@ if( mysql_num_rows( $inresult )==0 ){
           $id=$row['userId'];
           $drname=$row['doctorName'];
           $drspecial=$row['speciality'];
+          $ppicture=$row['picture'];
         }
       }
 ?>
@@ -74,7 +75,7 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Human Resource System</a>
             <div class="dropdown-content">
               <a href="hr.php">Add new User</a>
-              <a href="#">View User</a>
+              <a href="view_user.php">View User</a>
               <a href="#">Update User</a>
               <a href="#">Delete User</a>
             </div>
@@ -90,7 +91,7 @@ if( mysql_num_rows( $inresult )==0 ){
       <table class = "profile">
         <tr>
           <td>
-            <img src="image\profile1.png" alt="Profile Picture" style="width:200px;height:220px;">
+            <?php echo "<img width='145' height='150px' src=" .$ppicture. ">" ?>
           </td>
         </tr>
         <tr>
@@ -144,7 +145,7 @@ if( mysql_num_rows( $inresult )==0 ){
       <div id="table">
       <fieldset style="width:90%; height:320px; margin-left:30px;">
       <table style="float:left" id = "table1">
-      <form action="add_user.php" method="post">
+      <form action="add_user.php" method="post" enctype="multipart/form-data">
       <legend id="legend">New Doctor Profile</legend>
 
       <tr>
@@ -177,7 +178,7 @@ if( mysql_num_rows( $inresult )==0 ){
       </tr>
       <tr></tr><tr></tr>
       <tr>
-      <td> <input type="file" name="picture" accept="image/*"></td>
+      <td> <input type="file" name="fileToUpload" id="fileToUpload"></td>
       </tr>
       <table class="wt" style="float:middle">
         <tr>
