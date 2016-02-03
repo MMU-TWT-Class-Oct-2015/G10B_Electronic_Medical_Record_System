@@ -45,14 +45,7 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-<<<<<<< HEAD
               <a href="view_record.php">View/ Update/ Delete Record</a>
-
-=======
-              <a href="view_record.php">View Record</a>
-              <a href="view_record.php">Update Record</a>
-              <a href="view_record.php">Delete Record</a>
->>>>>>> d667fdb8a69b51e584ede00c39938ec300ce182e
             </div>
           </div>
         </li>
@@ -62,14 +55,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-<<<<<<< HEAD
-              <a href="view_patient1.php">View/ Update/ Delete Profile</a>
 
-=======
-              <a href="view_patient1.php">View Profile</a>
-              <a href="view_patient1.php">Update Profile</a>
-              <a href="view_patient1.php">Delete Profile</a>
->>>>>>> d667fdb8a69b51e584ede00c39938ec300ce182e
+              <a href="view_patient1.php">View/ Update/ Delete Profile</a>
             </div>
           </div>
         </li>

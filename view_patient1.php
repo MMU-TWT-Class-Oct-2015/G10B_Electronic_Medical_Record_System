@@ -12,7 +12,7 @@ mysql_connect("$host", "root", "")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
 $cname=$_SESSION["name"];
-//$sql="SELECT * FROM members WHERE username='$cname'";
+
 $sql="SELECT userId, doctorName, speciality,picture FROM members WHERE username='$cname'";
 $inresult=mysql_query($sql);
 
@@ -147,11 +147,9 @@ if( mysql_num_rows( $inresult )==0 ){
     <div class="conform">
       <div class="viewtable">
           <form action="view_search_patient.php" method="post">
-<<<<<<< HEAD
+
             <input type="text" id="search" name="search">
-=======
-            <input type="text" id="search" name="search" align="center">
->>>>>>> 440752ac9e06ad3e287bf02dc50ae9c83fa834e3
+
            <select id="searchby" name="searchby">
              <option value="">Search By</option>
              <option value="patientName">Patient Name</option>
@@ -189,21 +187,7 @@ if( mysql_num_rows( $inresult )==0 ){
          echo "No patient record!";
       }
       ?>
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-      <input style="margin-left:10px;" type="text" id="search" name="search">
-     <select id="searchby" name="searchby">
-       <option value="">Search By</option>
-       <option value="patientName">Patient Name</option>
-       <option value="patientId">Patient ID</option>
-       <option value="patientIc">Patient IC</option>
-       <input style="margin-left:10px; width:100px; height:50px; background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Search"/>
->>>>>>> b2eaf09c717b55e66041a7cddd55163bf1423881
->>>>>>> 440752ac9e06ad3e287bf02dc50ae9c83fa834e3
      </form>
       </div>
     </div>
