@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2016 at 10:28 AM
+-- Generation Time: Feb 03, 2016 at 10:59 AM
 -- Server version: 10.1.9-MariaDB
--- PHP Version: 7.0.1
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -21,18 +21,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `emr_system` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `emr_system`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `doctor`
---
-
-CREATE TABLE `doctor` (
-  `doctorId` int(11) NOT NULL,
-  `doctorName` varchar(50) DEFAULT NULL,
-  `speciality` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -62,16 +50,22 @@ CREATE TABLE `members` (
   `ic` bigint(11) NOT NULL,
   `phoneNo` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `gender` char(1) NOT NULL
+  `gender` char(1) NOT NULL,
+  `doctorName` varchar(50) DEFAULT NULL,
+  `speciality` varchar(20) DEFAULT NULL,
+  `picture` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`userId`, `username`, `password`, `type`, `ic`, `phoneNo`, `email`, `gender`) VALUES
-(1, 'admin', '12345', 1, 951236875482, 103568749, 'admin@gmail.com', 'M'),
-(2, 'staff', 'staff', 0, 753214865128, 365248975, 'staff@gmail.com', 'F');
+INSERT INTO `members` (`userId`, `username`, `password`, `type`, `ic`, `phoneNo`, `email`, `gender`, `doctorName`, `speciality`, `picture`) VALUES
+(1, 'admin', '12345', 1, 951236875482, 103568749, 'admin@gmail.com', 'M', 'Tan Ker Yun', 'Surgeon', NULL),
+(2, 'staff', 'staff', 0, 753214865128, 365248975, 'staff@gmail.com', 'F', 'Cindy', 'Heart Surgeon', NULL),
+(3, 'Choong', '12345', 1, 930518016455, 167030656, 'choonghansheng93@gmail.com', 'm', 'Choong Han Sheng', 'Psychologist', NULL),
+(4, 'Chong', 'cyscys', 0, 98989898989898, 123456789, 'cys1996@hotmail.com', '0', 'Chong Yee Soon', 'Physicist', NULL),
+(5, 'Chong', 'cys95', 0, 999999999999, 123456789, 'cys1996@hotmail.com', 'm', 'Chong Yee Soon', 'Dota', NULL);
 
 -- --------------------------------------------------------
 
@@ -80,18 +74,28 @@ INSERT INTO `members` (`userId`, `username`, `password`, `type`, `ic`, `phoneNo`
 --
 
 CREATE TABLE `patient` (
-  `userId` int(11) NOT NULL,
+  `userId` int(11) DEFAULT NULL,
   `patientId` int(11) NOT NULL,
-  `patientName` varchar(50) NOT NULL,
-  `patientPhoneNo` int(11) NOT NULL,
-  `patientIc` bigint(20) NOT NULL,
-  `patientAddress` varchar(100) NOT NULL,
-  `Dob` date NOT NULL,
-  `recordId` int(11) NOT NULL,
-  `patientGender` char(1) NOT NULL,
-  `race` varchar(10) NOT NULL,
-  `religion` varchar(10) NOT NULL
+  `patientName` varchar(50) DEFAULT NULL,
+  `patientPhoneNo` int(11) DEFAULT NULL,
+  `patientIc` bigint(20) DEFAULT NULL,
+  `patientAddress` varchar(100) DEFAULT NULL,
+  `Dob` date DEFAULT NULL,
+  `patientGender` char(1) DEFAULT NULL,
+  `race` varchar(10) DEFAULT NULL,
+  `religion` varchar(10) DEFAULT NULL,
+  `insurance` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `patient`
+--
+
+INSERT INTO `patient` (`userId`, `patientId`, `patientName`, `patientPhoneNo`, `patientIc`, `patientAddress`, `Dob`, `patientGender`, `race`, `religion`, `insurance`) VALUES
+(1, 12, '3', 3, 3, '3', '2016-02-02', 'm', 'malay', '3', '3'),
+(1, 13, '11111', 11111, 11111, '11111', '2016-02-02', 'm', 'malay', '11111', '11111'),
+(1, 14, '', 0, 0, '', '0000-00-00', '', '', '', ''),
+(1, 15, '', 0, 0, '', '0000-00-00', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -102,18 +106,22 @@ CREATE TABLE `patient` (
 CREATE TABLE `record` (
   `recordId` int(11) NOT NULL,
   `patientId` int(11) DEFAULT NULL,
-  `doctorId` int(11) DEFAULT NULL
+  `userId` int(11) DEFAULT NULL,
+  `treatment` varchar(500) DEFAULT NULL,
+  `diagnosis` varchar(500) DEFAULT NULL,
+  `symptom` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `record`
+--
+
+INSERT INTO `record` (`recordId`, `patientId`, `userId`, `treatment`, `diagnosis`, `symptom`) VALUES
+(1, 12, 1, 'hihi', 'byby', 'qweqwe');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `doctor`
---
-ALTER TABLE `doctor`
-  ADD PRIMARY KEY (`doctorId`);
 
 --
 -- Indexes for table `medical_history`
@@ -141,17 +149,12 @@ ALTER TABLE `patient`
 ALTER TABLE `record`
   ADD PRIMARY KEY (`recordId`),
   ADD KEY `patientId` (`patientId`),
-  ADD KEY `doctorId` (`doctorId`);
+  ADD KEY `userId` (`userId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `doctor`
---
-ALTER TABLE `doctor`
-  MODIFY `doctorId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `medical_history`
 --
@@ -161,12 +164,17 @@ ALTER TABLE `medical_history`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `userId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `patient`
+--
+ALTER TABLE `patient`
+  MODIFY `patientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `record`
 --
 ALTER TABLE `record`
-  MODIFY `recordId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `recordId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
@@ -188,7 +196,7 @@ ALTER TABLE `patient`
 --
 ALTER TABLE `record`
   ADD CONSTRAINT `record_ibfk_1` FOREIGN KEY (`patientId`) REFERENCES `patient` (`patientId`),
-  ADD CONSTRAINT `record_ibfk_2` FOREIGN KEY (`doctorId`) REFERENCES `doctor` (`doctorId`);
+  ADD CONSTRAINT `record_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `members` (`userId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
