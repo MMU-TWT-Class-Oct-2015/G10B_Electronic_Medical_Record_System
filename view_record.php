@@ -57,7 +57,7 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-              <a href="view_patient1">View Profile</a>
+              <a href="view_patient1.php">View Profile</a>
               <a href="#">Update Profile</a>
               <a href="#">Delete Profile</a>
             </div>
@@ -65,7 +65,9 @@ if( mysql_num_rows( $inresult )==0 ){
         </li>
 
       <ul style="float:right;list-style-type:none;">
-        <li><a1>Electronic Medical Record System</a1></li>
+        <li><a1><img src="image\iconflip.png" alt="Profile Picture" style="width:14px;height:14px;">
+        Electronic Medical Record System
+        <img src="image\icon.png" alt="Profile Picture" style="width:14px;height:14px;"></a1></li>
 
         <?php
           if($_SESSION["name"] === "admin") {?>
