@@ -30,6 +30,7 @@ $insurance=$_POST['insurance'];
       'race' => $race,
       'religion' => $religion,
       'insurance' => $insurance,
+      'age' => $age,
   );
 
   function dbRowInsert($table_name, $form_data)
