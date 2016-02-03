@@ -15,7 +15,7 @@ $email = $_POST['email'];
 $gender = $_POST['gender'];
 $doctorname = $_POST['drname'];
 $specility = $_POST['special'];
-$picture = $_POST['picture'];
+$picture = mysql_real_escape_string('image\\'.$_POST['picture']);
 
 
 
