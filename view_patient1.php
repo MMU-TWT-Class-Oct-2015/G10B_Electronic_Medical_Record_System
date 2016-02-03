@@ -181,7 +181,7 @@ if( mysql_num_rows( $inresult )==0 ){
       }
 
       ?>
-      <input type="text" id="search" name="search">
+      <input style="margin-left:10px;" type="text" id="search" name="search">
      <select id="searchby" name="searchby">
        <option value="">Search By</option>
        <option value="patientName">Patient Name</option>
