@@ -37,15 +37,16 @@ $insurance=$_POST['insurance'];
   {
       $fields = array_keys($form_data);
       $sql = "INSERT INTO ".$table_name." (`".implode('`,`', $fields)."`)VALUES('".implode("','", $form_data)."')";
-        return mysql_query($sql);
+      $sqlresult = mysql_query($sql);
+      echo "<script type='text/javascript'>
+                window.alert('New Profile successfully created!');
+                window.location.href = 'main1.php';
+            </script>";
+        return $sqlresult;
   }
 
 mysql_select_db("$db_name");
 
 dbRowInsert('patient',$form_data);
-
-
-
-
 
  ?>
