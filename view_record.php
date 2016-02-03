@@ -46,9 +46,9 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-              <a href="view_record.php">View Record</a>
-              <a href="#">Update Record</a>
-              <a href="#">Delete Record</a>
+              <a href="view_record.php">View/ Update/ Delete Record</a>
+            <!--  <a href="#">Update Record</a>
+              <a href="#">Delete Record</a>-->
             </div>
           </div>
         </li>
@@ -58,9 +58,9 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-              <a href="view_patient1.php">View Profile</a>
-              <a href="#">Update Profile</a>
-              <a href="#">Delete Profile</a>
+              <a href="view_patient1.php">View/ Update/ Delete Profile</a>
+              <!--<a href="#">Update Profile</a>
+              <a href="#">Delete Profile</a>-->
             </div>
           </div>
         </li>
@@ -77,9 +77,9 @@ if( mysql_num_rows( $inresult )==0 ){
                     <a href="#" class="dropbtn">Human Resource System</a>
                     <div class="dropdown-content">
                       <a href="hr.php">Add new User</a>
-                      <a href="view_user.php">View User</a>
-                      <a href="#">Update User</a>
-                      <a href="#">Delete User</a>
+                      <a href="view_user.php">View/ Update/ Delete User</a>
+                      <!--<a href="#">Update User</a>
+                      <a href="#">Delete User</a>-->
                     </div>
                   </div>
                 </li>
@@ -98,20 +98,21 @@ if( mysql_num_rows( $inresult )==0 ){
           </td>
         </tr>
         <tr>
-          <td>
-            Doctor ID: <?php echo $id;?>
+          <td><b>
+            Doctor ID:</b><i> <?php echo $id;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Name: <?php echo $drname;?>
+          <td><b>
+            Name:</b><i> <?php echo $drname;?></i>
           </td>
         </tr>
 
         <tr>
           <td >
             Speciality: <?php echo $drspecial;?>
+
           </td>
         </tr>
       </table>

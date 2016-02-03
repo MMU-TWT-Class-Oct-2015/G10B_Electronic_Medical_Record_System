@@ -98,20 +98,20 @@ if( mysql_num_rows( $inresult )==0 ){
           </td>
         </tr>
         <tr>
-          <td>
-            Doctor ID: <?php echo $id;?>
+          <td><b>
+            Doctor ID:</b><i> <?php echo $id;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Name: <?php echo $drname;?>
+          <td><b>
+            Name:</b><i> <?php echo $drname;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Speciality: <?php echo $drspecial;?>
+          <td><b>
+            Speciality:</b><i> <?php echo $drspecial;?></i>
           </td>
         </tr>
       </table>
@@ -150,16 +150,16 @@ if( mysql_num_rows( $inresult )==0 ){
           <legend id="legend">New Patient Record</legend>
           <table id="recordsize">
             <tr>
-              <td><input type="text" class="textbox" name="patientid" id="pid" placeholder="PatientID" required/></td>
+              <td><input class="textbox" type="text" class="textbox" name="patientid" id="pid" placeholder="PatientID" required/></td>
             </tr>
             <tr>
-              <td><textarea name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required></textarea></td>
+              <td><textarea class="textbox" name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required></textarea></td>
             </tr>
             <tr>
-                <td><textarea name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required></textarea></td>
+                <td><textarea  class="textbox"name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required></textarea></td>
             </tr>
             <tr>
-              <td><textarea name="symptoms" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required></textarea></td>
+              <td><textarea class="textbox" name="symptoms" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required></textarea></td>
             </tr>
           </table>
         </fieldset>
