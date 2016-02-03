@@ -76,7 +76,7 @@ if( mysql_num_rows( $inresult )==0 ){
                     <a href="#" class="dropbtn">Human Resource System</a>
                     <div class="dropdown-content">
                       <a href="hr.php">Add new User</a>
-                      <a href="#">View User</a>
+                      <a href="view_user.php">View User</a>
                       <a href="#">Update User</a>
                       <a href="#">Delete User</a>
                     </div>
