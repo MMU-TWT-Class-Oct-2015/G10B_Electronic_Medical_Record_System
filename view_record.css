@@ -1,3 +1,7 @@
+html{
+  background-color: cyan;
+}
+
 ul {
     margin: 0;
     padding: 0;
@@ -53,7 +57,7 @@ li a:hover, .dropdown:hover .dropbtn {
 }
 
 .tprofile{
-  height: 93%;
+  height: 84.5%;
   background-color: #333;
   z-index: -1;
   width:30%;
@@ -161,8 +165,8 @@ table.patlist ,.patdata{
 .conform{
   color: white;
   background-color: #333;
-  width:69%;
-  height: 93%;
+  width:69.3%;
+  height: 84.5%;
   float: right;
   margin-top: 8;
   left: 31px;
@@ -264,32 +268,43 @@ padding: 5px;
   margin-top: 250px;
   margin-left: 200px;
 }
-#footer
-{
-font-family:sans-serif;
-font-style:italic;
-font-size:15pt;
-height:100px;
-width:100%;
-position:relative;
-bottom:0;
-left:0;
-color:#A4A4A4;
-background-color:none;
-align:bottom;
-margin-top:5%;
-
-
-}
-
-#content
-{
-padding-left:40%;
-position:relative;
-align-content: center;
-padding-top:20px;
-}
 
 .wt{
   color: white;
+}
+
+/* footer css*/
+
+footer{margin: auto;
+	padding: 10px;
+	clear: right;
+	float: top;
+	width:98.5%;
+	height: 30px;
+	top: 8px;
+  bottom:0px;
+	left:0px;
+	position: relative;
+	border-top: none;
+	background:#333;
+}
+
+.mail{
+  text-decoration: none;
+  color: white;
+}
+
+#foot{margin: auto;
+	padding: 0px;
+	padding-bottom:6px;
+	clear: right;
+	float: top;
+	color: white;
+	text-align: center;
+	width:50%;
+}
+#copy
+{
+  width:10px;
+  height:10px;
 }

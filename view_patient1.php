@@ -146,6 +146,7 @@ if( mysql_num_rows( $inresult )==0 ){
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
       <div class="viewtable">
+          <form action="view_search_patient.php" method="post">
         <?php
 
         $i=0;
@@ -161,7 +162,7 @@ if( mysql_num_rows( $inresult )==0 ){
          <th>Phone No</th>
          <th>Patient IC</th>
          <th>Address</th>
-         <th>Day of birthday</th>
+         <th>Day of Birth</th>
          <th>Gender</th>
          <th>Race</th>
          <th>Religion</th>
@@ -177,10 +178,22 @@ if( mysql_num_rows( $inresult )==0 ){
          echo "No patient record!";
       }
 
-
       ?>
+      <input type="text" id="search" name="search">
+     <select id="searchby" name="searchby">
+       <option value="">Search By</option>
+       <option value="patientName">Patient Name</option>
+       <option value="patientId">Patient ID</option>
+       <option value="patientIc">Patient IC</option>
+       <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>
+     </form>
       </div>
     </div>
 
 </body>
+<footer>
+  <p id="foot">Copyright 2016.All right are reserved. Electronic Medical Record System.<img id="copy" src="image/copyright.png">
+  <br>Contact information: <a class="mail" href="mailto:EMR-sup@assignment.com">
+  EMR-sup@assignment.com</a></p>
+</footer>
 </html>
