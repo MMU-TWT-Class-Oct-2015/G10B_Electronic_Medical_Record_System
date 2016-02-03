@@ -46,9 +46,9 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-              <a href="view_record.php">View Record</a>
-              <a href="#">Update Record</a>
-              <a href="#">Delete Record</a>
+              <a href="view_record.php">View/ Update/ Delete Record</a>
+            <!--  <a href="#">Update Record</a>
+              <a href="#">Delete Record</a>-->
             </div>
           </div>
         </li>
@@ -58,9 +58,9 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-              <a href="view_patient1.php">View Profile</a>
-              <a href="#">Update Profile</a>
-              <a href="#">Delete Profile</a>
+              <a href="view_patient1.php">View/ Update/ Delete Profile</a>
+              <!--<a href="#">Update Profile</a>
+              <a href="#">Delete Profile</a>-->
             </div>
           </div>
         </li>
@@ -77,9 +77,9 @@ if( mysql_num_rows( $inresult )==0 ){
                     <a href="#" class="dropbtn">Human Resource System</a>
                     <div class="dropdown-content">
                       <a href="hr.php">Add new User</a>
-                      <a href="view_user.php">View User</a>
-                      <a href="#">Update User</a>
-                      <a href="#">Delete User</a>
+                      <a href="view_user.php">View/ Update/ Delete User</a>
+                      <!--<a href="#">Update User</a>
+                      <a href="#">Delete User</a>-->
                     </div>
                   </div>
                 </li>
@@ -98,20 +98,21 @@ if( mysql_num_rows( $inresult )==0 ){
           </td>
         </tr>
         <tr>
-          <td>
-            Doctor ID: <?php echo $id;?>
+          <td><b>
+            Doctor ID:</b><i> <?php echo $id;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Name: <?php echo $drname;?>
+          <td><b>
+            Name:</b><i> <?php echo $drname;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
+          <td >
             Speciality: <?php echo $drspecial;?>
+
           </td>
         </tr>
       </table>
@@ -146,11 +147,18 @@ if( mysql_num_rows( $inresult )==0 ){
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
+
       <div class="viewtable">
+          <form action="view_search_record.php" method="post">
+            <input type="text" id="search" name="search">
+           <select id="searchby" name="searchby">
+             <option value="">Search By</option>
+             <option value="recordId">Record Id</option>
+             <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Search"/>
         <?php
 
         $i=0;
-      $query = "SELECT patientName,doctorName,treatment,diagnosis,symptom FROM patient
+      $query = "SELECT recordId,patientName,doctorName,treatment,diagnosis,symptom FROM patient
       INNER JOIN record  ON patient.patientId=record.patientId
       INNER JOIN members ON patient.userId=members.userId";
       $result = mysql_query($query) or die(mysql_error());
@@ -160,6 +168,7 @@ if( mysql_num_rows( $inresult )==0 ){
          echo "<div class=\"scrollit\"><table class=\"table-style-one\">
          <tr>
          <th>No</th>
+         <th>Record Id</th>
          <th>Patient Name</th>
          <th>Handled by</th>
          <th>Treatment</th>
@@ -170,7 +179,7 @@ if( mysql_num_rows( $inresult )==0 ){
          </tr>";
 
          while($row = mysql_fetch_assoc($result)) {
-             echo "<tr><td>" .++$i."</td><td>" . $row["patientName"]. "</td><td> " . $row["doctorName"]. "</td><td> " . $row["treatment"]. "</td><td> " . $row["diagnosis"]. "</td><td> " . $row["symptom"]. "</td></tr>";
+             echo "<tr><td>" .++$i. "</td><td>". $row["recordId"]. "</td><td>" . $row["patientName"]. "</td><td> " . $row["doctorName"]. "</td><td> " . $row["treatment"]. "</td><td> " . $row["diagnosis"]. "</td><td> " . $row["symptom"]. "</td></tr>";
          }
          echo "</table></div>";
       } else {
@@ -179,6 +188,8 @@ if( mysql_num_rows( $inresult )==0 ){
 
 
       ?>
+
+     </form>
       </div>
     </div>
 

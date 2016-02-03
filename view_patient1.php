@@ -47,9 +47,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-              <a href="view_record.php">View Record</a>
-              <a href="#">Update Record</a>
-              <a href="#">Delete Record</a>
+              <a href="view_record.php">View/ Update/ Delete Record</a>
+
             </div>
           </div>
         </li>
@@ -59,9 +58,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-              <a href="view_patient1.php">View Profile</a>
-              <a href="#">Update Profile</a>
-              <a href="#">Delete Profile</a>
+              <a href="view_patient1.php">View/ Update/ Delete Profile</a>
+
             </div>
           </div>
         </li>
@@ -78,9 +76,8 @@ if( mysql_num_rows( $inresult )==0 ){
                     <a href="#" class="dropbtn">Human Resource System</a>
                     <div class="dropdown-content">
                       <a href="hr.php">Add new User</a>
-                      <a href="view_user.php">View User</a>
-                      <a href="#">Update User</a>
-                      <a href="#">Delete User</a>
+                      <a href="view_user.php">View/ Update/ Delete User</a>
+
                     </div>
                   </div>
                 </li>
@@ -99,20 +96,20 @@ if( mysql_num_rows( $inresult )==0 ){
           </td>
         </tr>
         <tr>
-          <td>
-            Doctor ID: <?php echo $id;?>
+          <td><b>
+            Doctor ID:</b> <i><?php echo $id;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Name: <?php echo $drname;?>
+          <td><b>
+            Name:</b> <i><?php echo $drname;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Speciality: <?php echo $drspecial;?>
+          <td><b>
+            Speciality:</b> <i><?php echo $drspecial;?></i>
           </td>
         </tr>
       </table>
@@ -146,10 +143,15 @@ if( mysql_num_rows( $inresult )==0 ){
 
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
+
     <div class="conform">
       <div class="viewtable">
           <form action="view_search_patient.php" method="post">
+<<<<<<< HEAD
             <input type="text" id="search" name="search">
+=======
+            <input type="text" id="search" name="search" align="center">
+>>>>>>> 440752ac9e06ad3e287bf02dc50ae9c83fa834e3
            <select id="searchby" name="searchby">
              <option value="">Search By</option>
              <option value="patientName">Patient Name</option>
@@ -186,9 +188,22 @@ if( mysql_num_rows( $inresult )==0 ){
       } else {
          echo "No patient record!";
       }
-
       ?>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+      <input style="margin-left:10px;" type="text" id="search" name="search">
+     <select id="searchby" name="searchby">
+       <option value="">Search By</option>
+       <option value="patientName">Patient Name</option>
+       <option value="patientId">Patient ID</option>
+       <option value="patientIc">Patient IC</option>
+       <input style="margin-left:10px; width:100px; height:50px; background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Search"/>
+>>>>>>> b2eaf09c717b55e66041a7cddd55163bf1423881
+>>>>>>> 440752ac9e06ad3e287bf02dc50ae9c83fa834e3
      </form>
       </div>
     </div>

@@ -308,3 +308,10 @@ footer{margin: auto;
   width:10px;
   height:10px;
 }
+
+#legend
+{
+  font-style:italic;
+  font-family:sans-serif;
+  font-weight:bold;
+}

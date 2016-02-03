@@ -46,9 +46,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-              <a href="view_record.php">View Record</a>
-              <a href="#">Update Record</a>
-              <a href="#">Delete Record</a>
+              <a href="view_record.php">View/ Update/ Delete Record</a>
+
             </div>
           </div>
         </li>
@@ -58,9 +57,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-              <a href="view_patient1.php">View Profile</a>
-              <a href="#">Update Profile</a>
-              <a href="#">Delete Profile</a>
+              <a href="view_patient1.php">View/ Update/ Delete Profile</a>
+
             </div>
           </div>
         </li>
@@ -77,9 +75,8 @@ if( mysql_num_rows( $inresult )==0 ){
                     <a href="#" class="dropbtn">Human Resource System</a>
                     <div class="dropdown-content">
                       <a href="hr.php">Add new User</a>
-                      <a href="view_user.php">View User</a>
-                      <a href="#">Update User</a>
-                      <a href="#">Delete User</a>
+                      <a href="view_user.php">View/ Update/ Delete User</a>
+
                     </div>
                   </div>
                 </li>
@@ -98,20 +95,20 @@ if( mysql_num_rows( $inresult )==0 ){
           </td>
         </tr>
         <tr>
-          <td>
-            Doctor ID: <?php echo $id;?>
+          <td><b>
+            Doctor ID:</b><i> <?php echo $id;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Name: <?php echo $drname;?>
+          <td><b>
+            Name:</b><i> <?php echo $drname;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Speciality: <?php echo $drspecial;?>
+          <td><b>
+            Speciality:</b><i> <?php echo $drspecial;?></i>
           </td>
         </tr>
       </table>
@@ -150,16 +147,16 @@ if( mysql_num_rows( $inresult )==0 ){
           <legend id="legend">New Patient Record</legend>
           <table id="recordsize">
             <tr>
-              <td><input type="text" class="textbox" name="patientid" id="pid" placeholder="PatientID" required/></td>
+              <td><input class="textbox" type="text" class="textbox" name="patientid" id="pid" placeholder="PatientID" required/></td>
             </tr>
             <tr>
-              <td><textarea name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required></textarea></td>
+              <td><textarea class="textbox" name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required></textarea></td>
             </tr>
             <tr>
-                <td><textarea name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required></textarea></td>
+                <td><textarea  class="textbox"name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required></textarea></td>
             </tr>
             <tr>
-              <td><textarea name="symptoms" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required></textarea></td>
+              <td><textarea class="textbox" name="symptoms" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required></textarea></td>
             </tr>
           </table>
         </fieldset>

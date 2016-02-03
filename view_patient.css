@@ -174,7 +174,10 @@ li a:hover, .dropdown:hover .dropbtn {
   -webkit-box-shadow: 0px 0px 8px #848484;
 }
 
-
+#search{
+  padding-top:5px;
+text-align: center;
+}
 #table
 {
 background-color:none;
@@ -183,7 +186,7 @@ color: white;
 }
 table.table-style-one {
 		font-family: verdana,arial,sans-serif;
-		font-size:11px;
+		font-size:15px;
 		color:#333333;
 		border-width: 1px;
 		border-color: #3A3A3A;
@@ -257,4 +260,11 @@ footer{margin: auto;
 {
   width:10px;
   height:10px;
+}
+
+#legend
+{
+  font-style:italic;
+  font-family:sans-serif;
+  font-weight:bold;
 }

@@ -12,7 +12,7 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $cname=$_SESSION["name"];
 //$sql="SELECT * FROM members WHERE username='$cname'";
-$sql="SELECT userId, doctorName, speciality FROM members WHERE username='$cname'";
+$sql="SELECT userId, doctorName, speciality,picture FROM members WHERE username='$cname'";
 $inresult=mysql_query($sql);
 
 if( mysql_num_rows( $inresult )==0 ){
@@ -22,6 +22,7 @@ if( mysql_num_rows( $inresult )==0 ){
           $id=$row['userId'];
           $drname=$row['doctorName'];
           $drspecial=$row['speciality'];
+          $ppicture=$row['picture'];
         }
       }
 
@@ -124,9 +125,8 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
              <a href="#" class="dropbtn">Patient Record</a>
              <div class="dropdown-content">
                <a href="record.php">Add new Record</a>
-               <a href="view_record.php">View Record</a>
-               <a href="#">Update Record</a>
-               <a href="#">Delete Record</a>
+               <a href="view_record.php">View/ Update/ Delete Record</a>
+
              </div>
            </div>
          </li>
@@ -136,9 +136,8 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
              <a href="#" class="dropbtn">Patient Profile</a>
              <div class="dropdown-content">
                <a href="patient.php">Add new Profile</a>
-               <a href="view_patient1.php">View Profile</a>
-               <a href="#">Update Profile</a>
-               <a href="#">Delete Profile</a>
+               <a href="view_patient1.php">View/ Update Delete Profile</a>
+
              </div>
            </div>
          </li>
@@ -155,9 +154,8 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
                      <a href="#" class="dropbtn">Human Resource System</a>
                      <div class="dropdown-content">
                        <a href="hr.php">Add new User</a>
-                       <a href="#">View User</a>
-                       <a href="#">Update User</a>
-                       <a href="#">Delete User</a>
+                       <a href="#">View/ Update/ Delete User</a>
+
                      </div>
                    </div>
                  </li>
@@ -172,7 +170,7 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
        <table class = "profile">
          <tr>
            <td>
-             <img src="image\profile1.png" alt="Profile Picture" style="width:200px;height:220px;">
+             <?php echo "<img width='145' height='150px' src=" .$ppicture. ">" ?>
            </td>
          </tr>
          <tr>
@@ -231,7 +229,11 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
        <legend id="legend">Searched Profile</legend>
 
        <tr>
+
+         <td>Patient ID:<br><input type="text"  class="textbox"  value = <?php echo $patientId ?>> </td>
+
          <td>Patient ID:<br><input type="none"  name = "pid"  class="textbox"  value = <?php echo $patientId ?>> </td>
+
        </tr>
  <tr></tr><tr></tr>
        <tr>
@@ -276,12 +278,13 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
        <td>Age:<br><input type="text"  name="age" class="textbox"  value = <?php echo $age ?>></td>
        </tr>
         </table>
-        <table class="subtn">
+        <table style="float:right" class="subtn">
           <tr><td>
         <input style="background-color:#00FF40;" id="button" type="submit" name="updatebtn"  value="Update"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
         <input style="background-color:#FA5858;" id="button" type="submit" name="deletebtn"  value="Delete"/>
  </td>
       </tr>
+    </form>
       </table>
        </div>
      </div>
