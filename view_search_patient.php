@@ -276,12 +276,13 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
        <td>Age:<br><input type="text"  name="age" class="textbox"  value = <?php echo $age ?>></td>
        </tr>
         </table>
-        <table class="subtn">
+        <table style="float:right" class="subtn">
           <tr><td>
         <input style="background-color:#00FF40;" id="button" type="submit" name="updatebtn"  value="Update"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
         <input style="background-color:#FA5858;" id="button" type="submit" name="deletebtn"  value="Delete"/>
  </td>
       </tr>
+    </form>
       </table>
        </div>
      </div>

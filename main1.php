@@ -46,8 +46,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
               <a href="view_record.php">View Record</a>
-              <a href="#">Update Record</a>
-              <a href="#">Delete Record</a>
+              <a href="view_record.php">Update Record</a>
+              <a href="view_record.php">Delete Record</a>
             </div>
           </div>
         </li>
@@ -58,8 +58,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
               <a href="view_patient1.php">View Profile</a>
-              <a href="#">Update Profile</a>
-              <a href="#">Delete Profile</a>
+              <a href="view_patient1.php">Update Profile</a>
+              <a href="view_patient1.php">Delete Profile</a>
             </div>
           </div>
         </li>
