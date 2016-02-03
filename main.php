@@ -1,8 +1,15 @@
 <html>
   <title> EMR SYSTEM </title>
+  <link rel="stylesheet" href="main.css" type="text/css"/>
   <body>
-    <h1 align=center>Electronic Medical Record System</h1>
-    <table width=300 border=1 align=center cellpadding=0 cellspacing=1>
+    <br>
+    <h1 style="color:white;" align=center>
+      <img src="image\iconflip.png" alt="Profile Picture" style="width:40px;height:40px;">
+      Electronic Medical Record System
+      <img src="image\icon.png" alt="Profile Picture" style="width:40px;height:40px;">
+    </h1>
+    <br>
+    <table width=300 border=3 align=center cellpadding=0 cellspacing=2>
       <form name="loginform" method="post" action="logincheck.php">
 
       <tr><td>

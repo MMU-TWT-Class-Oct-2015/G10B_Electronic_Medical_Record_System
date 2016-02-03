@@ -1,34 +1,6 @@
-head{
-  font-size: 20px;
-
-
+body {
+  background-color: #333;
 }
-div.menu{
-
-  position: fixed;
-      top: 50;
-      left: 0;
-      width: 300px;
-      border: 1px solid black;
-
-
+table{
+  background-color: white;
 }
-div.introduction{
-
-position: fixed;
-    top: 50;
-    left: 350;
-    width: 300px;
-    border: 1px solid black;
-  }
-select{
-      display: inline-block;
-      height: 30px;
-      width: 150px;
-      outline: none;
-      color: #74646e;
-      border: 1px solid #C8BFC4;
-      border-radius: 4px;
-      box-shadow: inset 1px 1px 2px #ddd8dc;
-      background: #fff;
-    }

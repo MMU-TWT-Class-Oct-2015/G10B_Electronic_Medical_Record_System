@@ -13,14 +13,14 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $cname=$_SESSION["name"];
 //$sql="SELECT * FROM members WHERE username='$cname'";
-$sql="SELECT doctor.doctorId,doctor.doctorName,doctor.speciality FROM doctor INNER JOIN members ON doctor.doctorId=members.userId WHERE username='$cname'";
+$sql="SELECT userId, doctorName, speciality FROM members WHERE username='$cname'";
 $inresult=mysql_query($sql);
 
 if( mysql_num_rows( $inresult )==0 ){
         echo '<tr><td colspan="4">No Rows Returned</td></tr>';
       }else{
         while( $row = mysql_fetch_assoc( $inresult ) ){
-          $id=$row['doctorId'];
+          $id=$row['userId'];
           $drname=$row['doctorName'];
           $drspecial=$row['speciality'];
         }
@@ -45,7 +45,7 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-              <a href="#">View Record</a>
+              <a href="view_record.php">View Record</a>
               <a href="#">Update Record</a>
               <a href="#">Delete Record</a>
             </div>
@@ -57,7 +57,7 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-              <a href="#">View Profile</a>
+              <a href="view_patient1.php">View Profile</a>
               <a href="#">Update Profile</a>
               <a href="#">Delete Profile</a>
             </div>
@@ -65,7 +65,9 @@ if( mysql_num_rows( $inresult )==0 ){
         </li>
 
       <ul style="float:right;list-style-type:none;">
-        <li><a1>Electronic Medical Record System</a1></li>
+        <li><a1><img src="image\iconflip.png" alt="Profile Picture" style="width:14px;height:14px;">
+        Electronic Medical Record System
+        <img src="image\icon.png" alt="Profile Picture" style="width:14px;height:14px;"></a1></li>
 
         <li>
           <div class="dropdown">
@@ -88,6 +90,11 @@ if( mysql_num_rows( $inresult )==0 ){
       <table class = "profile">
         <tr>
           <td>
+            <img src="image\profile1.png" alt="Profile Picture" style="width:200px;height:220px;">
+          </td>
+        </tr>
+        <tr>
+          <td>
             Doctor ID: <?php echo $id;?>
           </td>
         </tr>
@@ -104,6 +111,31 @@ if( mysql_num_rows( $inresult )==0 ){
           </td>
         </tr>
       </table>
+
+      <!--patient assigned list-->
+        <fieldset class="patfield">
+        <legend id="legend">Assigned Patient: </legend>
+        <table class = "patlist">
+          <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+        </table>
+        <div class="scroll">
+          <table class = "patdata">
+            <?php
+              $listsql="SELECT patientId, patientName FROM `patient` WHERE userId= '$id'";
+              $listresult=mysql_query($listsql);
+
+             while($listrow = mysql_fetch_assoc($listresult)){
+                echo "<tr><td>". $listrow['patientId']. "</td><td>". $listrow['patientName']. "</td></tr>";
+              }
+            ?>
+          </table>
+        </div>
+        </fieldset>
     </div>
 
 
