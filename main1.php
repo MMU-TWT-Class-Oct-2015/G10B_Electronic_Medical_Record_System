@@ -66,6 +66,8 @@ if( mysql_num_rows( $inresult )==0 ){
       <ul style="float:right;list-style-type:none;">
         <li><a1>Electronic Medical Record System</a1></li>
 
+<?php
+  if($_SESSION["name"] === "admin") {?>
         <li>
           <div class="dropdown">
             <a href="#" class="dropbtn">Human Resource System</a>
@@ -77,33 +79,62 @@ if( mysql_num_rows( $inresult )==0 ){
             </div>
           </div>
         </li>
+<?php } ?>
         <li>
             <a href="logout.php"> Logout  </a>
       </li>
       </ul>
     </ul>
+<!--side prifile view ---------------------->
+      <div class="tprofile">
+        <table class = "profile">
+          <tr>
+            <td>
+              <img src="image\profile1.png" alt="Profile Picture" style="width:200px;height:220px;">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Doctor ID: <?php echo $id;?>
+            </td>
+          </tr>
 
-    <div class="tprofile">
-      <table class = "profile">
-        <tr>
-          <td>
-            Doctor ID: <?php echo $id;?>
-          </td>
-        </tr>
+          <tr>
+            <td>
+              Name: <?php echo $drname;?>
+            </td>
+          </tr>
 
-        <tr>
-          <td>
-            Name: <?php echo $drname;?>
-          </td>
-        </tr>
+          <tr>
+            <td>
+              Speciality: <?php echo $drspecial;?>
+            </td>
+          </tr>
+        </table>
 
-        <tr>
-          <td>
-            Speciality: <?php echo $drspecial;?>
-          </td>
-        </tr>
+      <!--patient assigned list-->
+      <fieldset class="patfield">
+      <legend id="legend">Assigned Patient: </legend>
+      <table class = "patlist">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              $listsql="SELECT patientId, patientName FROM `patient` WHERE userId= '$id'";
+              $listresult=mysql_query($listsql);
+
+             while($listrow = mysql_fetch_assoc($listresult)){
+                echo "<tr><td>". $listrow['patientId']. "</td><td>". $listrow['patientName']. "</td></tr>";
+              }
+            ?>
+          </tbody>
       </table>
-    </div>
+      </fieldset>
+      </div>
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">

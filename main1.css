@@ -73,13 +73,65 @@ li a:hover, .dropdown:hover .dropbtn {
   color: white;
   text-align: center;
   background-color: silver;
-  position: absolute;
+  position: relative;
   z-index: 0;
-  left:13px;
+  left:10px;
   margin-top: 10px;
-  width: 29%;
+  width: 95%;
+  right: 10px;
 }
 
+.patfield{
+  color: white;
+  width:89%;
+  height:auto;
+  left:8px;
+  right: 10px;
+  position: relative;
+}
+
+.patlist{
+  color: white;
+  width:100%;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 2px solid silver;
+  height:auto;
+}
+
+.patlist tbody,.patlist tr,.patlist th,.patlist td{
+  display:block;
+}
+
+.patlist tr:after{
+  content: ' ';
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+.patlist tbody{
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.patlist tbody td,.patlist thead th{
+  width:50px;
+  float: left;
+  border-right: 1px solid silver;
+}
+
+tbody{
+  border-top: 2px solid silver;
+}
+
+tbody td:last-child, thead th:last-child{
+  border-right:none;
+}
+
+/* side form*/
 .conform{
   color: white;
   background-color: #333;
