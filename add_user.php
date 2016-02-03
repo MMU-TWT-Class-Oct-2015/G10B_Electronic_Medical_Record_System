@@ -15,6 +15,7 @@ $email = $_POST['email'];
 $gender = $_POST['gender'];
 $doctorname = $_POST['drname'];
 $specility = $_POST['special'];
+$picture = $_POST['picture'];
 
 
 
@@ -29,6 +30,7 @@ $specility = $_POST['special'];
       'gender' => $gender,
       'doctorName' => $doctorname,
       'speciality' => $specility,
+      'picture' => $picture,
   );
 
   function dbRowInsert($table_name, $form_data)

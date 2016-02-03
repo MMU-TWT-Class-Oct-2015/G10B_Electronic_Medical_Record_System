@@ -60,7 +60,12 @@ li a:hover, .dropdown:hover .dropbtn {
   margin-top: 8;
   float: left;
 }
-
+.drname{
+  color:white;
+}
+.special{
+  color:white;
+}
 .profile{
   color: white;
   text-align: center;
@@ -176,6 +181,10 @@ table.patlist ,.patdata{
 background-color:none;
 color: white;
 
+}
+#table1{
+  background-color:none;
+  color: white;
 }
 
 #button
