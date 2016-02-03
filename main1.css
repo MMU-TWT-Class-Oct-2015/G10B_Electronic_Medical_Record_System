@@ -68,7 +68,12 @@ li a:hover, .dropdown:hover .dropbtn {
   margin-top: 8;
   float: left;
 }
-
+.drname{
+  color:white;
+}
+.special{
+  color:white;
+}
 .profile{
   color: white;
   text-align: center;
@@ -177,6 +182,10 @@ tbody td:last-child, thead th:last-child{
 background-color:none;
 color: white;
 
+}
+#table1{
+  background-color:none;
+  color: white;
 }
 
 #button

@@ -111,9 +111,9 @@ if( mysql_num_rows( $inresult )==0 ){
     <div class="conform">
       <div id="table">
       <fieldset style="width:90%; height:320px; margin-left:30px;">
-      <table style="float:left" >
+      <table style="float:left" id = "table1">
       <form action="add_user.php" method="post">
-      <legend id="legend">New Patient Profile</legend>
+      <legend id="legend">New Doctor Profile</legend>
 
       <tr>
         <td><input type="text" class="textbox" name="username" id="username" placeholder="User Name" required/></td>
@@ -135,22 +135,27 @@ if( mysql_num_rows( $inresult )==0 ){
       <tr>
         <td><input type="text" class="textbox" name="email" id="email" placeholder="E-mail" required></td>
       </tr>
+      <tr></tr><tr></tr>
       <tr>
         <td>Gender:   <input type="radio" name="gender" value="m">Male<input type="radio" name="gender" value="f">Female</td>
       </tr>
+      <tr></tr><tr></tr>
       <tr>
         <td>Position:<input type="radio" name="type" value="0">Staff</td>
       </tr>
+      <tr></tr><tr></tr>
+      <tr>
+      <td> <input type="file" name="picture" accept="image/*"></td>
+      </tr>
       <table class="wt" style="float:middle">
         <tr>
-          <td><input type="text" class="textbox" name="drname" id="drname" placeholder="Dr Name" required/></td>
+          <td><input type="text" class="textbox"  name="drname" id="drname" placeholder="Dr Name" required/></td>
         </tr>
         <tr></tr><tr></tr>
         <tr>
           <td><input type="text" class="textbox" name="special" id="special" placeholder="Speciality" required/></td>
         </tr>
         <tr></tr><tr></tr>
-
       </table>
        </table>
        <table class="subtn">
@@ -161,11 +166,7 @@ if( mysql_num_rows( $inresult )==0 ){
      </tr>
      </table>
       </div>
-
-
-
   </form>
     </div>
-
 </body>
 </html>

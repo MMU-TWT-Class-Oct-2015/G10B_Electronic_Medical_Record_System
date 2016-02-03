@@ -87,6 +87,7 @@ body
     box-shadow: 0px 0px 8px #d9d9d9;
     -moz-box-shadow: 0px 0px 8px #d9d9d9;
     -webkit-box-shadow: 0px 0px 8px #d9d9d9;
+    color :white;
 }
 
 .textbox:focus {
@@ -99,7 +100,13 @@ body
 /* input box style*/
 
 /*table*/
+#drname{
+  color:white;
 
+}
+#special{
+  color:white;
+}
 #table
 {
   background-color:none;
@@ -132,7 +139,7 @@ td
   height:30px;
   margin-left:20px;
   margin-bottom:30px;
-  
+
   width:100px;
 }
 
