@@ -46,4 +46,9 @@
     </form>
   </table>
   </body>
+  <footer>
+  <p id="foot">Copyright 2016.All right are reserved. Electronic Medical Record System.<img id="copy" src="image/copyright.png">
+  <br>Contact information: <a class="mail" href="mailto:EMR-sup@assignment.com">
+  EMR-sup@assignment.com</a></p>
+</footer>
 </html>

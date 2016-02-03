@@ -4,3 +4,39 @@ body {
 table{
   background-color: white;
 }
+
+/* footer css*/
+
+footer{margin: auto;
+	padding: 10px;
+	clear: right;
+	float: top;
+	width:98.5%;
+	height: 30px;
+	top: 53%;
+  bottom:0px;
+	left:0px;
+	position: relative;
+	border-top: none;
+	background:#333;
+}
+
+.mail{
+  text-decoration: none;
+  color: white;
+}
+
+#foot{margin: auto;
+	padding: 0px;
+	padding-bottom:6px;
+	clear: right;
+	float: top;
+	color: white;
+	text-align: center;
+	width:50%;
+}
+#copy
+{
+  width:10px;
+  height:10px;
+}
