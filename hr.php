@@ -144,7 +144,7 @@ if( mysql_num_rows( $inresult )==0 ){
       <div id="table">
       <fieldset style="width:90%; height:320px; margin-left:30px;">
       <table style="float:left" id = "table1">
-      <form action="add_user.php" method="post">
+      <form action="add_user.php" method="post" enctype="multipart/form-data">
       <legend id="legend">New Doctor Profile</legend>
 
       <tr>
@@ -177,7 +177,7 @@ if( mysql_num_rows( $inresult )==0 ){
       </tr>
       <tr></tr><tr></tr>
       <tr>
-      <td> <input type="file" name="picture" accept="image/*"></td>
+      <td> <input type="file" name="picture" id="fileToUpload"></td>
       </tr>
       <table class="wt" style="float:middle">
         <tr>

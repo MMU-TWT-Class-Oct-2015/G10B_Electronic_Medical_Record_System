@@ -188,6 +188,7 @@ table.table-style-one {
 		border-width: 1px;
 		border-color: #3A3A3A;
 		border-collapse: collapse;
+    width:100%;
 	}
 	table.table-style-one th {
 		border-width: 1px;
