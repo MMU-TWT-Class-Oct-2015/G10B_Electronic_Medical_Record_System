@@ -1,10 +1,31 @@
 <?php
+session_start();
+
+if($_SESSION["name"] == ""){
+  header("location:main.php");
+}
 $host="localhost";
 $db_name="emr_system";
-$table_name="patient";
+$table_name="members";
 
 mysql_connect("$host", "root", "")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
+
+$cname=$_SESSION["name"];
+//$sql="SELECT * FROM members WHERE username='$cname'";
+$sql="SELECT userId, doctorName, speciality,picture FROM members WHERE username='$cname'";
+$inresult=mysql_query($sql);
+
+if( mysql_num_rows( $inresult )==0 ){
+        echo '<tr><td colspan="4">No Rows Returned</td></tr>';
+      }else{
+        while( $row = mysql_fetch_assoc( $inresult ) ){
+          $id=$row['userId'];
+          $drname=$row['doctorName'];
+          $drspecial=$row['speciality'];
+          $ppicture=$row['picture'];
+        }
+      }
 
 $pname=$_POST['pname'];
 $ic=$_POST['ic'];
@@ -19,7 +40,7 @@ $insurance=$_POST['insurance'];
 
 
   $form_data = array(
-      'userId' => 1,
+      'userId' => $id,
       'patientId' => NULL,
       'patientName' => $pname,
   'patientPhoneNo' => $phonenumber,

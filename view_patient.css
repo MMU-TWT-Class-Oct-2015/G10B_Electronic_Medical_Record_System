@@ -174,7 +174,10 @@ li a:hover, .dropdown:hover .dropbtn {
   -webkit-box-shadow: 0px 0px 8px #848484;
 }
 
-
+#search{
+  padding-top:5px;
+text-align: center;
+}
 #table
 {
 background-color:none;
