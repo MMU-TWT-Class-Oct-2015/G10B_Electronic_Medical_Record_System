@@ -109,20 +109,20 @@ if( mysql_num_rows( $inresult )==0 ){
           </td>
         </tr>
         <tr>
-          <td>
-            Doctor ID: <?php echo $id;?>
+          <td><b>
+            Doctor ID:</b><i> <?php echo $id;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Name: <?php echo $drname;?>
+          <td><b>
+            Name:</b><i> <?php echo $drname;?></i>
           </td>
         </tr>
 
         <tr>
-          <td>
-            Speciality: <?php echo $drspecial;?>
+          <td><b>
+            Speciality:</b><i> <?php echo $drspecial;?></i>
           </td>
         </tr>
       </table>

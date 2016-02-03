@@ -24,8 +24,12 @@ $patientId = $_POST['patientid'];
   {
       $fields = array_keys($form_data);
       $sql = "INSERT INTO ".$table_name." (`".implode('`,`', $fields)."`)VALUES('".implode("','", $form_data)."')";
-      echo $sql;
-        return mysql_query($sql);
+      $sqlresult = mysql_query($sql);
+      echo "<script type='text/javascript'>
+                window.alert('New record successfully created!');
+                window.location.href = 'main1.php';
+            </script>";
+        return $sqlresult;
 
   }
 
