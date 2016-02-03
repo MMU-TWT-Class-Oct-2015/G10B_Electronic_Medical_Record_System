@@ -6,21 +6,23 @@ $table_name="members";
 mysql_connect("$host", "root", "")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
-$upload_dir="image/";
-$target_file=$upload_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOK = 1;
-$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
+$allowtype = array("jpg", "jpeg", "gif", "png");
 
-if(isset($_POST["submit"])){
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  if($check !== false){
-    echo "File is an image -" . $check["mime"]. ".";
-    $uploadOK=1;
-  } else{
-    echo "File is not an image.";
-    $uploadOK = 0;
+$upload_dir='image/';
+$target_file =$upload_dir . basename($_FILES['fileToUpload']['name']);
+if (!!$_FILES['fileToUpload']['tmp_name']){
+  $info = explode('.', strtolower( $_FILES['fileToUpload']['name']));
+  if( in_array( end($info), $allowtype) ){
+    if (move_uploaded_file( $_FILES['fileToUpload']['name'],$upload_dir . basename($_FILES['fileToUpload']['name']))){
+      echo "upload good";
+    }
   }
+  else {
+    echo "upload bad";
+  }
+
 }
+
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -31,7 +33,7 @@ $email = $_POST['email'];
 $gender = $_POST['gender'];
 $doctorname = $_POST['drname'];
 $specility = $_POST['special'];
-$picture = mysql_real_escape_string('image\\'.$_POST['picture']);
+$picture = $target_file;
 
 
 

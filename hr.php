@@ -177,7 +177,7 @@ if( mysql_num_rows( $inresult )==0 ){
       </tr>
       <tr></tr><tr></tr>
       <tr>
-      <td> <input type="file" name="picture" id="fileToUpload"></td>
+      <td> <input type="file" name="fileToUpload" id="fileToUpload"></td>
       </tr>
       <table class="wt" style="float:middle">
         <tr>
