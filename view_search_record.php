@@ -1,8 +1,8 @@
 <?php
 session_start();
-//if($_SESSION["name"] == ""){
-  //header("location:main.php");
-//}
+if($_SESSION["name"] == ""){
+  header("location:main.php");
+}
 $host="localhost";
 $db_name="emr_system";
 $table_name="record";
@@ -106,7 +106,7 @@ $sql = "SELECT * FROM record INNER JOIN patient  WHERE recordId = '$search' ";
                      <div class="dropdown-content">
                        <a href="hr.php">Add new User</a>
                        <a href="#">View/ Update/ Delete User</a>
-                      
+
                      </div>
                    </div>
                  </li>

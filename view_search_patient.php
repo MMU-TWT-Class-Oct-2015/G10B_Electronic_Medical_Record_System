@@ -1,8 +1,8 @@
 <?php
 session_start();
-//if($_SESSION["name"] == ""){
-  //header("location:main.php");
-//}
+if($_SESSION["name"] == ""){
+  header("location:main.php");
+}
 $host="localhost";
 $db_name="emr_system";
 $table_name="members";

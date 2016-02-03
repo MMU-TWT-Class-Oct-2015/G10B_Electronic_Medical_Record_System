@@ -1,11 +1,11 @@
 <?php
 session_start();
-//if($_SESSION["name"] == ""){
-  //header("location:main.php");
-//}
+if($_SESSION["name"] == ""){
+  header("location:main.php");
+}
 $host="localhost";
 $db_name="emr_system";
-//$table_name="record";
+
 
 mysql_connect("$host", "root", "")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
