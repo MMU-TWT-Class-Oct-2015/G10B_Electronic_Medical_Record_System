@@ -188,7 +188,17 @@ if( mysql_num_rows( $inresult )==0 ){
          echo "No patient record!";
       }
       ?>
+<<<<<<< HEAD
 
+=======
+      <input style="margin-left:10px;" type="text" id="search" name="search">
+     <select id="searchby" name="searchby">
+       <option value="">Search By</option>
+       <option value="patientName">Patient Name</option>
+       <option value="patientId">Patient ID</option>
+       <option value="patientIc">Patient IC</option>
+       <input style="margin-left:10px; width:100px; height:50px; background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Search"/>
+>>>>>>> b2eaf09c717b55e66041a7cddd55163bf1423881
      </form>
       </div>
     </div>
