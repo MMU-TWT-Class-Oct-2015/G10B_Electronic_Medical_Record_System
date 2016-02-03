@@ -116,13 +116,15 @@ if( mysql_num_rows( $inresult )==0 ){
       <fieldset class="patfield">
       <legend id="legend">Assigned Patient: </legend>
       <table class = "patlist">
-          <thead>
+        <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
             </tr>
           </thead>
-          <tbody>
+        </table>
+          <div class="scroll">
+            <table class = "patdata">
             <?php
               $listsql="SELECT patientId, patientName FROM `patient` WHERE userId= '$id'";
               $listresult=mysql_query($listsql);
@@ -131,8 +133,9 @@ if( mysql_num_rows( $inresult )==0 ){
                 echo "<tr><td>". $listrow['patientId']. "</td><td>". $listrow['patientName']. "</td></tr>";
               }
             ?>
-          </tbody>
+
       </table>
+</div>
       </fieldset>
       </div>
 
