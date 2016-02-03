@@ -125,9 +125,8 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
              <a href="#" class="dropbtn">Patient Record</a>
              <div class="dropdown-content">
                <a href="record.php">Add new Record</a>
-               <a href="view_record.php">View Record</a>
-               <a href="#">Update Record</a>
-               <a href="#">Delete Record</a>
+               <a href="view_record.php">View/ Update/ Delete Record</a>
+
              </div>
            </div>
          </li>
@@ -137,9 +136,8 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
              <a href="#" class="dropbtn">Patient Profile</a>
              <div class="dropdown-content">
                <a href="patient.php">Add new Profile</a>
-               <a href="view_patient1.php">View Profile</a>
-               <a href="#">Update Profile</a>
-               <a href="#">Delete Profile</a>
+               <a href="view_patient1.php">View/ Update Delete Profile</a>
+
              </div>
            </div>
          </li>
@@ -156,9 +154,8 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
                      <a href="#" class="dropbtn">Human Resource System</a>
                      <div class="dropdown-content">
                        <a href="hr.php">Add new User</a>
-                       <a href="#">View User</a>
-                       <a href="#">Update User</a>
-                       <a href="#">Delete User</a>
+                       <a href="#">View/ Update/ Delete User</a>
+
                      </div>
                    </div>
                  </li>
@@ -232,11 +229,11 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
        <legend id="legend">Searched Profile</legend>
 
        <tr>
-<<<<<<< HEAD
+
          <td>Patient ID:<br><input type="text"  class="textbox"  value = <?php echo $patientId ?>> </td>
-=======
+
          <td>Patient ID:<br><input type="none"  name = "pid"  class="textbox"  value = <?php echo $patientId ?>> </td>
->>>>>>> e2438b2f9e18f139f860e9d956903c823e4fa67f
+
        </tr>
  <tr></tr><tr></tr>
        <tr>
