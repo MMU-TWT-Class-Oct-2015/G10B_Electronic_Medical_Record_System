@@ -5,7 +5,7 @@ session_start();
 //}
 $host="localhost";
 $db_name="emr_system";
-$table_name="members";
+$table_name="record";
 
 mysql_connect("$host", "root", "")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
@@ -34,8 +34,9 @@ mysql_select_db("$db_name")or die("cannot select DB");
 $search = $_POST['search'];
 $searchby = $_POST['searchby'];
 
-if($searchby == "patientId"){
-$sql = "SELECT * FROM patient WHERE patientId='$search' ";
+if($searchby == "patientIc"){
+$sql = "SELECT * FROM record INNER JOIN patient  ON patient.patientId=record.patientId
+INNER JOIN members ON patient.userId=members.userId WHERE patient.patientIc = '$search' ";
 
    $retrieve = mysql_query( $sql, $conn );
 
@@ -44,68 +45,18 @@ $sql = "SELECT * FROM patient WHERE patientId='$search' ";
    }
 
    while($row = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
- $userId= $row['userId'];
-  $patientId= $row['patientId'];
-  $patientName= $row['patientName'];
-  $patientPhoneNo= $row['patientPhoneNo'];
-  $patientIc= $row['patientIc'];
-  $patientAddress= $row['patientAddress'];
-  $Dob= $row['Dob'];
-  $patientGender= $row['patientGender'];
-  $race= $row['race'];
-  $religion= $row['religion'];
-  $insurance= $row['insurance'];
-  $age= $row['age'];
+
+   $recordId= $row['recordId'];
+   $patientId= $row['patientId'];
+  $userId= $row['userId'];
+   $treatment= $row['treatment'];
+   $diagnosis= $row['diagnosis'];
+   $symptom= $row['symptom'];
+
    }
-}elseif($searchby == "patientName"){
-$sql = "SELECT * FROM patient WHERE patientName='$search' ";
+}
 
-   $retrieve = mysql_query( $sql, $conn );
-
-   if(! $retrieve ) {
-      die('Could not get data: ' . mysql_error());
-   }
-
-   while($row = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
- $userId= $row['userId'];
-  $patientId= $row['patientId'];
-  $patientName= $row['patientName'];
-  $patientPhoneNo= $row['patientPhoneNo'];
-  $patientIc= $row['patientIc'];
-  $patientAddress= $row['patientAddress'];
-  $Dob= $row['Dob'];
-  $patientGender= $row['patientGender'];
-  $race= $row['race'];
-  $religion= $row['religion'];
-  $insurance= $row['insurance'];
-  $age= $row['age'];
-   }
-}elseif($searchby == "patientIc"){
-$sql = "SELECT * FROM patient WHERE patientIc='$search' ";
-
-   $retrieve = mysql_query( $sql, $conn );
-
-   if(! $retrieve ) {
-      die('Could not get data: ' . mysql_error());
-   }
-
-   while($row = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
- $userId= $row['userId'];
-  $patientId= $row['patientId'];
-  $patientName= $row['patientName'];
-  $patientPhoneNo= $row['patientPhoneNo'];
-  $patientIc= $row['patientIc'];
-  $patientAddress= $row['patientAddress'];
-  $Dob= $row['Dob'];
-  $patientGender= $row['patientGender'];
-  $race= $row['race'];
-  $religion= $row['religion'];
-  $insurance= $row['insurance'];
-  $age= $row['age'];
-   }
- }
  ?>
-
  <html>
 
    <head>
@@ -223,60 +174,34 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
 
 
  <!--EDIT YOUR CODE HERE ------------------------------------------>
-     <div class="conform">
-       <div id="table">
-       <fieldset style="width:90%; height:320px; margin-left:30px;">
-       <table style="float:left" >
-       <legend id="legend">Searched Profile</legend>
-
+ <div class="conform">
+     <form action="add_record_profile.php" method="post">
+       <fieldset style="width:90%; height:auto; margin-left:30px;">
+       <legend id="legend">New Patient Record</legend>
+       <table id="recordsize">
+         <tr>
+           <td><input type="text" class="textbox" name="patientid" id="pid" placeholder="PatientID" required value=<?php echo $patientId ?> /></td>
+         </tr>
+         <tr>
+           <td><textarea name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required ><?php echo $treatment ?></textarea></td>
+         </tr>
+         <tr>
+             <td><textarea name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required ><?php echo $diagnosis ?></textarea></td>
+         </tr>
+         <tr>
+           <td><textarea name="symptoms" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required ><?php echo $symptom ?></textarea></td>
+         </tr>
+       </table>
+     </fieldset>
+     <table align="center">
        <tr>
-         <td>Patient ID:<br><input type="text"  class="textbox"  value = <?php echo $patientId ?>> </td>
+         <td>
+          <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Update"/>&nbsp &nbsp &nbsp &nbsp
+          <input style="background-color:#FA5858;" id="button" type="submit" name="submitbtn"  value="Delete"/>
+         </td>
        </tr>
- <tr></tr><tr></tr>
-       <tr>
-         <td>Patient Name:<br><input type="text" class="textbox"  value = <?php echo $patientName ?>></td>
-       </tr>
- <tr></tr><tr></tr>
-       <tr>
-       <td>Patient Phone No:<br><input type="text" class="textbox"  value = <?php echo $patientPhoneNo ?>></td>
-       </tr>
- <tr></tr><tr></tr>
-       <tr>
-       <td>Patient IC:<br><input type="text" class="textbox"  value = <?php echo $patientIc ?>></td>
-       </tr>
- <tr></tr><tr></tr>
-       <tr>
-       <td>Patient Address:<br><input type="text" class="textbox"  value = <?php echo $patientAddress ?>></td>
-       </tr>
- <tr></tr><tr></tr>
- </table>
- <table style="float:middle" >
-       <tr>
-       <td>Date of Birth:<br><input type="text" class="textbox"  value = <?php echo $Dob ?>></td>
-       </tr>
-       <tr></tr><tr></tr>
-       <tr>
-       <td>Gender:<br><input type="text" class="textbox"  value = <?php echo $patientGender ?>></td>
-       </tr>
- <tr></tr><tr></tr>
-       <tr>
-       <td>Race:<br><input type="text" class="textbox"  value = <?php echo $race ?>></td>
-       </tr>
- <tr></tr><tr></tr>
-       <tr>
-       <td>Religion:<br><input type="text" class="textbox"  value = <?php echo $religion ?>></td>
-       </tr>
- <tr></tr><tr></tr>
-       <tr>
-       <td>Insurance:<br><input type="text" class="textbox"  value = <?php echo $insurance ?>></td>
-       </tr>
-<tr></tr><tr></tr>
-       <tr>
-       <td>Age:<br><input type="text" class="textbox"  value = <?php echo $age ?>></td>
-       </tr>
-        </table>
-       </div>
-     </div>
-
+   </table>
+     </form>
+ </div>
  </body>
  </html>
