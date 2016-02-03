@@ -8,6 +8,7 @@ $host="localhost";
 $db_name="emr_system";
 $table_name="members";
 
+
 mysql_connect("$host", "root", "")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
@@ -25,6 +26,17 @@ if( mysql_num_rows( $inresult )==0 ){
           $drspecial=$row['speciality'];
         }
       }
+
+      if(isset($_POST['submitbtn']))
+      {
+        echo "
+            <script type=\"text/javascript\">
+            window.alert('Your form is submit successfully!');
+            window.location.href = 'main1.php';
+            </script>
+        ";
+      
+     }
 ?>
 
 <html>
@@ -56,8 +68,8 @@ if( mysql_num_rows( $inresult )==0 ){
           <div class="dropdown">
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
-              <a href="#">Add new Profile</a>
-              <a href="#">View Profile</a>
+              <a href="patient.php">Add new Profile</a>
+              <a href="view_patient1.php">View Profile</a>
               <a href="#">Update Profile</a>
               <a href="#">Delete Profile</a>
             </div>

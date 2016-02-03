@@ -28,8 +28,9 @@ if( mysql_num_rows( $inresult )==0 ){
 ?>
 
 <html>
+
   <head>
-    <link rel="stylesheet" href="main1.css" type="text/css"/>
+    <link rel="stylesheet" href="view_record.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EMR MENU</title>
   </head>
@@ -55,8 +56,8 @@ if( mysql_num_rows( $inresult )==0 ){
           <div class="dropdown">
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
-              <a href="patient.php">Add new Profile</a>
-              <a href="view_patient.php">View Profile</a>
+              <a href="#">Add new Profile</a>
+              <a href="#">View Profile</a>
               <a href="#">Update Profile</a>
               <a href="#">Delete Profile</a>
             </div>
@@ -66,99 +67,82 @@ if( mysql_num_rows( $inresult )==0 ){
       <ul style="float:right;list-style-type:none;">
         <li><a1>Electronic Medical Record System</a1></li>
 
-<?php
-  if($_SESSION["name"] === "admin") {?>
         <li>
           <div class="dropdown">
             <a href="#" class="dropbtn">Human Resource System</a>
             <div class="dropdown-content">
-              <a href="hr.php">Add new User</a>
+              <a href="#">Add new User</a>
               <a href="#">View User</a>
               <a href="#">Update User</a>
               <a href="#">Delete User</a>
             </div>
           </div>
         </li>
-<?php } ?>
         <li>
             <a href="logout.php"> Logout  </a>
       </li>
       </ul>
     </ul>
-<!--side prifile view ---------------------->
-      <div class="tprofile">
-        <table class = "profile">
-          <tr>
-            <td>
-              <img src="image\profile1.png" alt="Profile Picture" style="width:200px;height:220px;">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Doctor ID: <?php echo $id;?>
-            </td>
-          </tr>
 
-          <tr>
-            <td>
-              Name: <?php echo $drname;?>
-            </td>
-          </tr>
+    <div class="tprofile">
+      <table class = "profile">
+        <tr>
+          <td>
+            Doctor ID: <?php echo $id;?>
+          </td>
+        </tr>
 
-          <tr>
-            <td>
-              Speciality: <?php echo $drspecial;?>
-            </td>
-          </tr>
-        </table>
+        <tr>
+          <td>
+            Name: <?php echo $drname;?>
+          </td>
+        </tr>
 
-      <!--patient assigned list-->
-      <fieldset class="patfield">
-      <legend id="legend">Assigned Patient: </legend>
-      <table class = "patlist">
-        <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-            </tr>
-          </thead>
-        </table>
-          <div class="scroll">
-            <table class = "patdata">
-            <?php
-              $listsql="SELECT patientId, patientName FROM `patient` WHERE userId= '$id'";
-              $listresult=mysql_query($listsql);
-
-             while($listrow = mysql_fetch_assoc($listresult)){
-                echo "<tr><td>". $listrow['patientId']. "</td><td>". $listrow['patientName']. "</td></tr>";
-              }
-            ?>
-
+        <tr>
+          <td>
+            Speciality: <?php echo $drspecial;?>
+          </td>
+        </tr>
       </table>
-</div>
-      </fieldset>
-      </div>
+    </div>
+
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
-      <div class="para">
-        <h1>Brief Information:</h1>
-        <p>This is an Electronic Medical Record System. This medical record is a
-          confidential record that is kept for each patient by a healthcare
-          professional or organization. It contains the patient's personal details
-           (such as name, address, date of birth), a summary of the patient's
-           medical history, and documentation of each event, including symptoms,
-           diagnosis, treatment and outcome.
+      <div class="viewtable">
+        <?php
 
-           <br><br>
-           This project is done by 4 person as named below:
-           <ol>
-             <li>Kelvin</li>
-             <li>Tony</li>
-             <li>Chong</li>
-             <li>Boon</li>
-           </ol>
-        </p>
+        $i=0;
+      $query = "SELECT patientName,patientPhoneNo,patientIc, patientAddress,Dob,patientGender,race,religion,insurance FROM patient order by patientId";
+      $result = mysql_query($query) or die(mysql_error());
+
+
+      if (mysql_num_rows($result) > 0) {
+         echo "<table class=\"table-style-one\">
+         <tr>
+         <th>No</th>
+         <th>Name</th>
+         <th>Phone No</th>
+         <th>Patient IC</th>
+         <th>Address</th>
+         <th>Day of birthday</th>
+         <th>Gender</th>
+         <th>Race</th>
+         <th>Religion</th>
+         <th>Insurance</th>
+
+         </tr>";
+
+         while($row = mysql_fetch_assoc($result)) {
+             echo "<tr><td>" .++$i."</td><td>" . $row["patientName"]. "</td><td> " . $row["patientPhoneNo"]. "</td><td> " . $row["patientIc"]. "</td><td> " . $row["patientAddress"]. "</td><td> " . $row["Dob"]. "</td><td> " . $row["patientGender"]. "</td><td> " . $row["race"]. "</td><td> " . $row["religion"]. "</td><td> " . $row["insurance"]. "</td></tr>";
+         }
+         echo "</table>";
+      } else {
+         echo "No patient record!";
+      }
+
+
+      ?>
       </div>
     </div>
 
