@@ -156,7 +156,7 @@ if( mysql_num_rows( $inresult )==0 ){
 
 
       if (mysql_num_rows($result) > 0) {
-         echo "<table class=\"table-style-one\">
+         echo "<div class=\"scrollit\"><table class=\"table-style-one\">
          <tr>
          <th>No</th>
          <th>Patient Name</th>
@@ -169,9 +169,9 @@ if( mysql_num_rows( $inresult )==0 ){
          </tr>";
 
          while($row = mysql_fetch_assoc($result)) {
-             echo "<tr><td>" .++$i."</td><td>" . $row["patientName"]. "</td><td> " . $row["members.doctorName"]. "</td><td> " . $row["treatment"]. "</td><td> " . $row["diagnosis"]. "</td><td> " . $row["symptom"]. "</td></tr>";
+             echo "<tr><td>" .++$i."</td><td>" . $row["patientName"]. "</td><td> " . $row["doctorName"]. "</td><td> " . $row["treatment"]. "</td><td> " . $row["diagnosis"]. "</td><td> " . $row["symptom"]. "</td></tr>";
          }
-         echo "</table>";
+         echo "</table></div>";
       } else {
          echo "No record!";
       }
