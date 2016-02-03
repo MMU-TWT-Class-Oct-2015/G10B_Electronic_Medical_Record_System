@@ -13,14 +13,14 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $cname=$_SESSION["name"];
 //$sql="SELECT * FROM members WHERE username='$cname'";
-$sql="SELECT doctor.doctorId,doctor.doctorName,doctor.speciality FROM doctor INNER JOIN members ON doctor.doctorId=members.userId WHERE username='$cname'";
+$sql="SELECT userId, doctorName, speciality FROM members WHERE username='$cname'";
 $inresult=mysql_query($sql);
 
 if( mysql_num_rows( $inresult )==0 ){
         echo '<tr><td colspan="4">No Rows Returned</td></tr>';
       }else{
         while( $row = mysql_fetch_assoc( $inresult ) ){
-          $id=$row['doctorId'];
+          $id=$row['userId'];
           $drname=$row['doctorName'];
           $drspecial=$row['speciality'];
         }

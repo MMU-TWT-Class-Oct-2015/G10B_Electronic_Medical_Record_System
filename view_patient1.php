@@ -13,14 +13,14 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $cname=$_SESSION["name"];
 //$sql="SELECT * FROM members WHERE username='$cname'";
-$sql="SELECT doctor.doctorId,doctor.doctorName,doctor.speciality FROM doctor INNER JOIN members ON doctor.doctorId=members.userId WHERE username='$cname'";
+$sql="SELECT userId, doctorName, speciality FROM members WHERE username='$cname'";
 $inresult=mysql_query($sql);
 
 if( mysql_num_rows( $inresult )==0 ){
         echo '<tr><td colspan="4">No Rows Returned</td></tr>';
       }else{
         while( $row = mysql_fetch_assoc( $inresult ) ){
-          $id=$row['doctorId'];
+          $id=$row['userId'];
           $drname=$row['doctorName'];
           $drspecial=$row['speciality'];
         }
@@ -67,17 +67,20 @@ if( mysql_num_rows( $inresult )==0 ){
       <ul style="float:right;list-style-type:none;">
         <li><a1>Electronic Medical Record System</a1></li>
 
-        <li>
-          <div class="dropdown">
-            <a href="#" class="dropbtn">Human Resource System</a>
-            <div class="dropdown-content">
-              <a href="#">Add new User</a>
-              <a href="#">View User</a>
-              <a href="#">Update User</a>
-              <a href="#">Delete User</a>
-            </div>
-          </div>
-        </li>
+        <?php
+          if($_SESSION["name"] === "admin") {?>
+                <li>
+                  <div class="dropdown">
+                    <a href="#" class="dropbtn">Human Resource System</a>
+                    <div class="dropdown-content">
+                      <a href="hr.php">Add new User</a>
+                      <a href="#">View User</a>
+                      <a href="#">Update User</a>
+                      <a href="#">Delete User</a>
+                    </div>
+                  </div>
+                </li>
+        <?php } ?>
         <li>
             <a href="logout.php"> Logout  </a>
       </li>
@@ -86,6 +89,11 @@ if( mysql_num_rows( $inresult )==0 ){
 
     <div class="tprofile">
       <table class = "profile">
+        <tr>
+          <td>
+            <img src="image\profile1.png" alt="Profile Picture" style="width:200px;height:220px;">
+          </td>
+        </tr>
         <tr>
           <td>
             Doctor ID: <?php echo $id;?>
