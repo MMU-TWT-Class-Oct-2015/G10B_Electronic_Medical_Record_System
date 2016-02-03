@@ -149,6 +149,13 @@ if( mysql_num_rows( $inresult )==0 ){
     <div class="conform">
       <div class="viewtable">
           <form action="view_search_patient.php" method="post">
+            <input type="text" id="search" name="search">
+           <select id="searchby" name="searchby">
+             <option value="">Search By</option>
+             <option value="patientName">Patient Name</option>
+             <option value="patientId">Patient ID</option>
+             <option value="patientIc">Patient IC</option>
+             <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>
         <?php
 
         $i=0;
@@ -181,13 +188,7 @@ if( mysql_num_rows( $inresult )==0 ){
       }
 
       ?>
-      <input type="text" id="search" name="search">
-     <select id="searchby" name="searchby">
-       <option value="">Search By</option>
-       <option value="patientName">Patient Name</option>
-       <option value="patientId">Patient ID</option>
-       <option value="patientIc">Patient IC</option>
-       <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>
+
      </form>
       </div>
     </div>

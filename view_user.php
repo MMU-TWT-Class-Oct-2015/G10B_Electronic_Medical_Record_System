@@ -146,11 +146,19 @@ if( mysql_num_rows( $inresult )==0 ){
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
+      <form action="view_search_member.php" method="post">
+        <input type="text" id="search" name="search"></input>
+       <select id="searchby" name="searchby">
+         <option value="">Search By</option>
+         <option value="doctorName">Doctor Name</option>
+         <option value="userId">Doctor ID</option>
+         <option value="ic">Doctor IC</option>
+         <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>
       <div class="viewtable">
         <?php
 
         $i=0;
-      $query = "SELECT doctorName,ic,gender,phoneNo,email,speciality,picture FROM members order by doctorName";
+      $query = "SELECT userId,doctorName,ic,gender,phoneNo,email,speciality,picture FROM members order by doctorName";
 
       $result = mysql_query($query) or die(mysql_error());
 
@@ -159,6 +167,7 @@ if( mysql_num_rows( $inresult )==0 ){
          echo "<div class=\"scrollit\"><table class=\"table-style-one\">
          <tr>
          <th>No</th>
+         <th>ID</th>
          <th>Doctor Name</th>
          <th>IC No</th>
          <th>Gender</th>
@@ -172,7 +181,7 @@ if( mysql_num_rows( $inresult )==0 ){
 
          while($row1 = mysql_fetch_assoc($result)) {
 
-             echo "<tr><td>" .++$i."</td><td>" . $row1["doctorName"]. "</td><td> " .
+             echo "<tr><td>" .++$i."</td><td>".$row1['userId'] ."</td><td>". $row1["doctorName"]. "</td><td> " .
              $row1["ic"]. "</td><td> " . $row1["gender"]. "</td><td> " . $row1["phoneNo"].
               "</td><td> " . $row1["email"]. "</td><td> " . $row1["speciality"].
              "</td><td><img width='145' height='150px' src=" . $row1["picture"]. "></td></tr>";
@@ -185,6 +194,7 @@ if( mysql_num_rows( $inresult )==0 ){
 
       ?>
       </div>
+    </form>
     </div>
 
 </body>
