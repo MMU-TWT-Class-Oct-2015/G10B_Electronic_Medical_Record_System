@@ -187,7 +187,7 @@ if( mysql_num_rows( $inresult )==0 ){
        <option value="patientName">Patient Name</option>
        <option value="patientId">Patient ID</option>
        <option value="patientIc">Patient IC</option>
-       <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>
+       <input style="margin-left:10px; width:100px; height:50px; background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Search"/>
      </form>
       </div>
     </div>
