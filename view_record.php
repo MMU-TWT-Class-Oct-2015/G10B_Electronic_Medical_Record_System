@@ -149,7 +149,9 @@ if( mysql_num_rows( $inresult )==0 ){
         <?php
 
         $i=0;
-      $query = "SELECT patientName,patientPhoneNo,patientIc, patientAddress,Dob,patientGender,race,religion,insurance FROM patient order by patientId";
+      $query = "SELECT patientName,doctorName,treatment,diagnosis,symptom FROM patient
+      INNER JOIN record  ON patient.patientId=record.patientId
+      INNER JOIN members ON patient.userId=members.userId";
       $result = mysql_query($query) or die(mysql_error());
 
 
@@ -157,24 +159,21 @@ if( mysql_num_rows( $inresult )==0 ){
          echo "<table class=\"table-style-one\">
          <tr>
          <th>No</th>
-         <th>Name</th>
-         <th>Phone No</th>
-         <th>Patient IC</th>
-         <th>Address</th>
-         <th>Day of birthday</th>
-         <th>Gender</th>
-         <th>Race</th>
-         <th>Religion</th>
-         <th>Insurance</th>
+         <th>Patient Name</th>
+         <th>Handled by</th>
+         <th>Treatment</th>
+         <th>Diagnosis</th>
+         <th>Symptom</th>
+
 
          </tr>";
 
          while($row = mysql_fetch_assoc($result)) {
-             echo "<tr><td>" .++$i."</td><td>" . $row["patientName"]. "</td><td> " . $row["patientPhoneNo"]. "</td><td> " . $row["patientIc"]. "</td><td> " . $row["patientAddress"]. "</td><td> " . $row["Dob"]. "</td><td> " . $row["patientGender"]. "</td><td> " . $row["race"]. "</td><td> " . $row["religion"]. "</td><td> " . $row["insurance"]. "</td></tr>";
+             echo "<tr><td>" .++$i."</td><td>" . $row["patientName"]. "</td><td> " . $row["members.doctorName"]. "</td><td> " . $row["treatment"]. "</td><td> " . $row["diagnosis"]. "</td><td> " . $row["symptom"]. "</td></tr>";
          }
          echo "</table>";
       } else {
-         echo "No patient record!";
+         echo "No record!";
       }
 
 
