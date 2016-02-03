@@ -227,54 +227,62 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
        <div id="table">
        <fieldset style="width:90%; height:320px; margin-left:30px;">
        <table style="float:left" >
+       <form action="update_patient_profile.php" method="post">
        <legend id="legend">Searched Profile</legend>
 
        <tr>
-         <td>Patient ID:<br><input type="none"  class="textbox"  value = <?php echo $patientId ?>> </td>
+         <td>Patient ID:<br><input type="none"  name = "pid"  class="textbox"  value = <?php echo $patientId ?>> </td>
        </tr>
  <tr></tr><tr></tr>
        <tr>
-         <td>Patient Name:<br><input type="text" class="textbox"  value = <?php echo $patientName ?>></td>
+         <td>Patient Name:<br><input type="text" name="pname" class="textbox"  value = <?php echo $patientName ?>></td>
        </tr>
  <tr></tr><tr></tr>
        <tr>
-       <td>Patient Phone No:<br><input type="text" class="textbox"  value = <?php echo $patientPhoneNo ?>></td>
+       <td>Patient Phone No:<br><input type="text" name="phonenumber" class="textbox"  value = <?php echo $patientPhoneNo ?>></td>
        </tr>
  <tr></tr><tr></tr>
        <tr>
-       <td>Patient IC:<br><input type="text" class="textbox"  value = <?php echo $patientIc ?>></td>
+       <td>Patient IC:<br><input type="text" name ="ic" class="textbox"  value = <?php echo $patientIc ?>></td>
        </tr>
  <tr></tr><tr></tr>
        <tr>
-       <td>Patient Address:<br><input type="text" class="textbox"  value = <?php echo $patientAddress ?>></td>
+       <td>Patient Address:<br><input type="text" name = "address" class="textbox"  value = <?php echo $patientAddress ?>></td>
        </tr>
  <tr></tr><tr></tr>
  </table>
  <table style="float:middle" >
        <tr>
-       <td>Date of Birth:<br><input type="text" class="textbox"  value = <?php echo $Dob ?>></td>
+       <td>Date of Birth:<br><input type="text" name = "birthday" class="textbox"  value = <?php echo $Dob ?>></td>
        </tr>
        <tr></tr><tr></tr>
        <tr>
-       <td>Gender:<br><input type="text" class="textbox"  value = <?php echo $patientGender ?>></td>
+       <td>Gender:<br><input type="text" name = "gender" class="textbox"  value = <?php echo $patientGender ?>></td>
        </tr>
  <tr></tr><tr></tr>
        <tr>
-       <td>Race:<br><input type="text" class="textbox"  value = <?php echo $race ?>></td>
+       <td>Race:<br><input type="text" name = "race" class="textbox"  value = <?php echo $race ?>></td>
        </tr>
  <tr></tr><tr></tr>
        <tr>
-       <td>Religion:<br><input type="text" class="textbox"  value = <?php echo $religion ?>></td>
+       <td>Religion:<br><input type="text" name = "religion" class="textbox"  value = <?php echo $religion ?>></td>
        </tr>
  <tr></tr><tr></tr>
        <tr>
-       <td>Insurance:<br><input type="text" class="textbox"  value = <?php echo $insurance ?>></td>
+       <td>Insurance:<br><input type="text" name = "insurance" class="textbox"  value = <?php echo $insurance ?>></td>
        </tr>
 <tr></tr><tr></tr>
        <tr>
-       <td>Age:<br><input type="text" class="textbox"  value = <?php echo $age ?>></td>
+       <td>Age:<br><input type="text"  name="age" class="textbox"  value = <?php echo $age ?>></td>
        </tr>
         </table>
+        <table class="subtn">
+          <tr><td>
+        <input style="background-color:#00FF40;" id="button" type="submit" name="updatebtn"  value="Update"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        <input style="background-color:#FA5858;" id="button" type="submit" name="deletebtn"  value="Delete"/>
+ </td>
+      </tr>
+      </table>
        </div>
      </div>
 
