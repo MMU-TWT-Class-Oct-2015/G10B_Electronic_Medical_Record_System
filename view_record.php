@@ -13,7 +13,7 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $cname=$_SESSION["name"];
 //$sql="SELECT * FROM members WHERE username='$cname'";
-$sql="SELECT userId, doctorName, speciality FROM members WHERE username='$cname'";
+$sql="SELECT userId, doctorName, speciality,picture FROM members WHERE username='$cname'";
 $inresult=mysql_query($sql);
 
 if( mysql_num_rows( $inresult )==0 ){
@@ -23,6 +23,7 @@ if( mysql_num_rows( $inresult )==0 ){
           $id=$row['userId'];
           $drname=$row['doctorName'];
           $drspecial=$row['speciality'];
+          $ppicture=$row['picture'];
         }
       }
 ?>
@@ -76,7 +77,7 @@ if( mysql_num_rows( $inresult )==0 ){
                     <a href="#" class="dropbtn">Human Resource System</a>
                     <div class="dropdown-content">
                       <a href="hr.php">Add new User</a>
-                      <a href="#">View User</a>
+                      <a href="view_user.php">View User</a>
                       <a href="#">Update User</a>
                       <a href="#">Delete User</a>
                     </div>
@@ -93,7 +94,7 @@ if( mysql_num_rows( $inresult )==0 ){
       <table class = "profile">
         <tr>
           <td>
-            <img src="image\profile1.png" alt="Profile Picture" style="width:200px;height:220px;">
+            <?php echo "<img width='145' height='150px' src=" .$ppicture. ">" ?>
           </td>
         </tr>
         <tr>
@@ -109,7 +110,7 @@ if( mysql_num_rows( $inresult )==0 ){
         </tr>
 
         <tr>
-          <td>
+          <td >
             Speciality: <?php echo $drspecial;?>
           </td>
         </tr>
@@ -145,12 +146,18 @@ if( mysql_num_rows( $inresult )==0 ){
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
+
       <div class="viewtable">
           <form action="view_search_record.php" method="post">
+            <input type="text" id="search" name="search">
+           <select id="searchby" name="searchby">
+             <option value="">Search By</option>
+             <option value="recordId">Record Id</option>
+             <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Search"/>
         <?php
 
         $i=0;
-      $query = "SELECT patientName,doctorName,treatment,diagnosis,symptom FROM patient
+      $query = "SELECT recordId,patientName,doctorName,treatment,diagnosis,symptom FROM patient
       INNER JOIN record  ON patient.patientId=record.patientId
       INNER JOIN members ON patient.userId=members.userId";
       $result = mysql_query($query) or die(mysql_error());
@@ -160,6 +167,7 @@ if( mysql_num_rows( $inresult )==0 ){
          echo "<div class=\"scrollit\"><table class=\"table-style-one\">
          <tr>
          <th>No</th>
+         <th>Record Id</th>
          <th>Patient Name</th>
          <th>Handled by</th>
          <th>Treatment</th>
@@ -170,7 +178,7 @@ if( mysql_num_rows( $inresult )==0 ){
          </tr>";
 
          while($row = mysql_fetch_assoc($result)) {
-             echo "<tr><td>" .++$i."</td><td>" . $row["patientName"]. "</td><td> " . $row["doctorName"]. "</td><td> " . $row["treatment"]. "</td><td> " . $row["diagnosis"]. "</td><td> " . $row["symptom"]. "</td></tr>";
+             echo "<tr><td>" .++$i. "</td><td>". $row["recordId"]. "</td><td>" . $row["patientName"]. "</td><td> " . $row["doctorName"]. "</td><td> " . $row["treatment"]. "</td><td> " . $row["diagnosis"]. "</td><td> " . $row["symptom"]. "</td></tr>";
          }
          echo "</table></div>";
       } else {
@@ -179,11 +187,7 @@ if( mysql_num_rows( $inresult )==0 ){
 
 
       ?>
-      <input type="text" id="search" name="search">
-     <select id="searchby" name="searchby">
-       <option value="">Search By</option>
-       <option value="patientIc">Ic / Passport</option>
-       <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>
+
      </form>
       </div>
     </div>

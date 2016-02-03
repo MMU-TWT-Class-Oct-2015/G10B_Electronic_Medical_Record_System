@@ -6,6 +6,14 @@ $table_name="members";
 mysql_connect("$host", "root", "")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
+
+$upload_dir='image/';
+$target_file =$upload_dir . basename($_FILES['fileToUpload']['name']);
+
+        $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
+        $name = $_FILES["fileToUpload"]["name"];
+        move_uploaded_file($tmp_name, "$upload_dir/$name");
+
 $username = $_POST['username'];
 $password = $_POST['password'];
 $type = $_POST['type'];
@@ -15,7 +23,7 @@ $email = $_POST['email'];
 $gender = $_POST['gender'];
 $doctorname = $_POST['drname'];
 $specility = $_POST['special'];
-$picture = $_POST['picture'];
+$picture = $target_file;
 
 
 
@@ -30,7 +38,7 @@ $picture = $_POST['picture'];
       'gender' => $gender,
       'doctorName' => $doctorname,
       'speciality' => $specility,
-      'picture' => $picture,
+      'picture' => $picture ,
   );
 
   function dbRowInsert($table_name, $form_data)

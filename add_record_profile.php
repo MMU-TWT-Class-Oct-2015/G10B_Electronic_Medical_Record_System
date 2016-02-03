@@ -24,7 +24,6 @@ $patientId = $_POST['patientid'];
   {
       $fields = array_keys($form_data);
       $sql = "INSERT INTO ".$table_name." (`".implode('`,`', $fields)."`)VALUES('".implode("','", $form_data)."')";
-      echo $sql;
         return mysql_query($sql);
 
   }
@@ -34,6 +33,8 @@ mysql_select_db("$db_name");
 dbRowInsert('record',$form_data);
 
 
+header("location:record.php");
+exit();
 
 
 

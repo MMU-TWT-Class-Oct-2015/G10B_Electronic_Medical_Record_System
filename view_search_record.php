@@ -34,9 +34,8 @@ mysql_select_db("$db_name")or die("cannot select DB");
 $search = $_POST['search'];
 $searchby = $_POST['searchby'];
 
-if($searchby == "patientIc"){
-$sql = "SELECT * FROM record INNER JOIN patient  ON patient.patientId=record.patientId
-INNER JOIN members ON patient.userId=members.userId WHERE patient.patientIc = '$search' ";
+if($searchby == "recordId"){
+$sql = "SELECT * FROM record INNER JOIN patient  WHERE recordId = '$search' ";
 
    $retrieve = mysql_query( $sql, $conn );
 
@@ -175,12 +174,14 @@ INNER JOIN members ON patient.userId=members.userId WHERE patient.patientIc = '$
 
  <!--EDIT YOUR CODE HERE ------------------------------------------>
  <div class="conform">
-     <form action="add_record_profile.php" method="post">
+     <form action="update_record.php" method="post">
        <fieldset style="width:90%; height:auto; margin-left:30px;">
-       <legend id="legend">New Patient Record</legend>
+       <legend id="legend">Update Record</legend>
        <table id="recordsize">
          <tr>
-           <td><input type="text" class="textbox" name="patientid" id="pid" placeholder="PatientID" required value=<?php echo $patientId ?> /></td>
+
+           <td><input type="text" class="textbox" name="patientId" id="pid" placeholder="PatientID" required value=<?php echo $patientId ?> /></td>
+           <td><input type="text" name='recordId' value=<?php echo $recordId ?>  style="display:none"></td>
          </tr>
          <tr>
            <td><textarea name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required ><?php echo $treatment ?></textarea></td>
@@ -189,15 +190,15 @@ INNER JOIN members ON patient.userId=members.userId WHERE patient.patientIc = '$
              <td><textarea name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required ><?php echo $diagnosis ?></textarea></td>
          </tr>
          <tr>
-           <td><textarea name="symptoms" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required ><?php echo $symptom ?></textarea></td>
+           <td><textarea name="symptom" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required ><?php echo $symptom ?></textarea></td>
          </tr>
        </table>
      </fieldset>
      <table align="center">
        <tr>
          <td>
-          <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Update"/>&nbsp &nbsp &nbsp &nbsp
-          <input style="background-color:#FA5858;" id="button" type="submit" name="submitbtn"  value="Delete"/>
+          <input style="background-color:#00FF40;" id="button" type="submit" name="updatebtn" value="Update"/>&nbsp &nbsp &nbsp &nbsp
+          <input style="background-color:#FA5858;" id="button" type="submit" name="deletebtn" value="Delete"/>
          </td>
        </tr>
    </table>
