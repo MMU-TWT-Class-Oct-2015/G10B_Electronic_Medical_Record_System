@@ -40,9 +40,8 @@ if( mysql_num_rows( $inresult )==0 ){
 ?>
 
 <html>
-
   <head>
-    <link rel="stylesheet" href="main1.css" type="text/css"/>
+    <link rel="stylesheet" href="patient.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EMR MENU</title>
   </head>
@@ -57,7 +56,7 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-              <a href="#">View Record</a>
+              <a href="view_record.php">View Record</a>
               <a href="#">Update Record</a>
               <a href="#">Delete Record</a>
             </div>
@@ -124,6 +123,31 @@ if( mysql_num_rows( $inresult )==0 ){
           </td>
         </tr>
       </table>
+
+      <!--patient assigned list-->
+        <fieldset class="patfield">
+        <legend id="legend">Assigned Patient: </legend>
+        <table class = "patlist">
+          <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+        </table>
+        <div class="scroll">
+          <table class = "patdata">
+            <?php
+              $listsql="SELECT patientId, patientName FROM `patient` WHERE userId= '$id'";
+              $listresult=mysql_query($listsql);
+
+             while($listrow = mysql_fetch_assoc($listresult)){
+                echo "<tr><td>". $listrow['patientId']. "</td><td>". $listrow['patientName']. "</td></tr>";
+              }
+            ?>
+          </table>
+        </div>
+        </fieldset>
     </div>
 
 

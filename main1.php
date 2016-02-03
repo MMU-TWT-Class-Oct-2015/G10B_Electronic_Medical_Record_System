@@ -44,7 +44,7 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-              <a href="#">View Record</a>
+              <a href="view_record.php">View Record</a>
               <a href="#">Update Record</a>
               <a href="#">Delete Record</a>
             </div>
@@ -56,7 +56,7 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-              <a href="view_patient.php">View Profile</a>
+              <a href="view_patient1.php">View Profile</a>
               <a href="#">Update Profile</a>
               <a href="#">Delete Profile</a>
             </div>
@@ -113,18 +113,18 @@ if( mysql_num_rows( $inresult )==0 ){
         </table>
 
       <!--patient assigned list-->
-      <fieldset class="patfield">
-      <legend id="legend">Assigned Patient: </legend>
-      <table class = "patlist">
-        <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-            </tr>
-          </thead>
+        <fieldset class="patfield">
+        <legend id="legend">Assigned Patient: </legend>
+        <table class = "patlist">
+          <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
         </table>
-          <div class="scroll">
-            <table class = "patdata">
+        <div class="scroll">
+          <table class = "patdata">
             <?php
               $listsql="SELECT patientId, patientName FROM `patient` WHERE userId= '$id'";
               $listresult=mysql_query($listsql);
@@ -133,10 +133,9 @@ if( mysql_num_rows( $inresult )==0 ){
                 echo "<tr><td>". $listrow['patientId']. "</td><td>". $listrow['patientName']. "</td></tr>";
               }
             ?>
-
-      </table>
-</div>
-      </fieldset>
+          </table>
+        </div>
+        </fieldset>
       </div>
 
 <!--EDIT YOUR CODE HERE ------------------------------------------>
