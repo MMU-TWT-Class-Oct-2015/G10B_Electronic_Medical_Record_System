@@ -56,7 +56,7 @@ if( mysql_num_rows( $inresult )==0 ){
           <div class="dropdown">
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
-              <a href="#">Add new Profile</a>
+              <a href="patient.php">Add new Profile</a>
               <a href="#">View Profile</a>
               <a href="#">Update Profile</a>
               <a href="#">Delete Profile</a>
@@ -112,57 +112,45 @@ if( mysql_num_rows( $inresult )==0 ){
       <div id="table">
       <fieldset style="width:90%; height:320px; margin-left:30px;">
       <table style="float:left" >
-      <form action="add_patient_profile.php" method="post">
+      <form action="add_user.php" method="post">
       <legend id="legend">New Patient Profile</legend>
 
       <tr>
-        <td><input type="text" class="textbox" name="pname" id="ppname" placeholder="Name" required/></td>
-
+        <td><input type="text" class="textbox" name="username" id="username" placeholder="User Name" required/></td>
       </tr>
 <tr></tr><tr></tr>
       <tr>
-        <td><input type="text" name="age"class="textbox" id="age" placeholder="Age" required/></td>
+        <td><input type="password" name="password"class="textbox" id="password" placeholder="Password" required/></td>
       </tr>
 <tr></tr><tr></tr>
       <tr>
         <td><input type="text" class="textbox" name="phonenumber" id="phonenumber" placeholder="Contact Number" required/></td>
       </tr>
 <tr></tr><tr></tr>
+<tr></tr><tr></tr>
       <tr>
-        <td>
-          <select id="race" name="race" class="textbox" required>
-            <option value="" selected>Race:</option>
-            <option value="cina">Cina</option>
-            <option value="malay">Malay</option>
-            <option value="india">Indian</option>
-            <option value="others">others</option>
-          </select>
-        </td>
+        <td><input type="text" class="textbox" name="ic" id="ic" placeholder="IC" required/></td>
       </tr>
 <tr></tr><tr></tr>
       <tr>
-        <td><input type="text" class="textbox" name="religion" id="religion" placeholder="Religion" required/></td>
+        <td><input type="text" class="textbox" name="email" id="email" placeholder="E-mail" required></td>
       </tr>
-<tr></tr><tr></tr>
       <tr>
-        <td><input type="text" class="textbox" name="insurance" id="insurance" placeholder="Insurance Company" required></td>
+        <td>Gender:   <input type="radio" name="gender" value="m">Male<input type="radio" name="gender" value="f">Female</td>
       </tr>
+      <tr>
+        <td>Position:<input type="radio" name="type" value="0">Staff</td>
+      </tr>
+      <table class="wt" style="float:middle">
+        <tr>
+          <td><input type="text" class="textbox" name="drname" id="drname" placeholder="Dr Name" required/></td>
+        </tr>
+        <tr></tr><tr></tr>
+        <tr>
+          <td><input type="text" class="textbox" name="special" id="special" placeholder="Speciality" required/></td>
+        </tr>
+        <tr></tr><tr></tr>
 
-      <table class="wt" style="float:right">
-        <tr>
-          <td><input type="text" class="textbox" name="ic" id="ic" placeholder="IC/Passport" required/></td>
-        </tr>
-        <tr>
-          <td>Date of birth:<br><input type="date" name="birthday" class="textbox" id="birthday"  required></td>
-
-        </tr>
-        <tr>
-          <td>Gender:<input type="radio" name="gender" value="m">Male<input type="radio" name="gender" value="f">Female</td>
-        </tr>
-        <tr>
-          <td><textarea name="address" class="textbox" id="address" rows="4" cols="50" maxlength="500" placeholder="Address.." required></textarea></td>
-
-        </tr>
       </table>
        </table>
        <table class="subtn">
