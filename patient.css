@@ -118,10 +118,6 @@ body
 
 }
 
-td
-{
-  align:right;
-}
 /*table*/
 
 
@@ -132,7 +128,7 @@ td
   height:30px;
   margin-left:20px;
   margin-bottom:30px;
-  
+
   width:100px;
 }
 
