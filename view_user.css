@@ -111,7 +111,8 @@ table.table-style-one {
 	}
   .scrollit {
       overflow:scroll;
-      height:520px;
+      overflow-x: hidden;
+      height:503px;
   }
 
 table.patlist ,.patdata{
