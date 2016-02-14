@@ -15,7 +15,7 @@ $target_file =$upload_dir . basename($_FILES['fileToUpload']['name']);
         move_uploaded_file($tmp_name, "$upload_dir/$name");
 
 $username = $_POST['username'];
-$password = $_POST['password'];
+$pass = $_POST['password'];
 $type = $_POST['type'];
 $ic = $_POST['ic'];
 $phonenumber = $_POST['phonenumber'];
@@ -24,7 +24,7 @@ $gender = $_POST['gender'];
 $doctorname = $_POST['drname'];
 $specility = $_POST['special'];
 $picture = $target_file;
-
+$password = sha1($pass);
 
 
   $form_data = array(
