@@ -71,9 +71,6 @@ echo "<script type='text/javascript'>
           window.alert('New record successfully created!');
           window.location.href = 'view_record.php';
       </script>";
-//header("location:record.php");
-//exit();
-
 
 
  ?>

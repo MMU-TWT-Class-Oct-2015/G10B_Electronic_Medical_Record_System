@@ -11,12 +11,7 @@ mysql_select_db("$db_name")or die("cannot select DB");
 $uname=$_POST['uname'];
 $upassword=$_POST['upassword'];
 $utype=$_POST['utype'];
-<<<<<<< HEAD
 
-
-=======
-//HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
->>>>>>> e1d21bee849fb5fbee7ac79508ca8ad151c80930
 $upassword = sha1($upassword);
 if($uname == "" || $upassword == "" || $utype == ""){
   echo "<script type='text/javascript'>
