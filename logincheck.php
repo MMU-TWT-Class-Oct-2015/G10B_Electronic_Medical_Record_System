@@ -11,8 +11,9 @@ mysql_select_db("$db_name")or die("cannot select DB");
 $uname=$_POST['uname'];
 $upassword=$_POST['upassword'];
 $utype=$_POST['utype'];
-//HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-//$upassword = sha1($upassword);
+
+
+$upassword = sha1($upassword);
 if($uname == "" || $upassword == "" || $utype == ""){
   echo "<script type='text/javascript'>
             window.alert('Please enter your username and password!');
