@@ -144,6 +144,7 @@ if( mysql_num_rows( $inresult )==0 ){
 <!--EDIT YOUR CODE HERE ------------------------------------------>
     <div class="conform">
       <form action="view_search_member.php" method="post">
+        <br>
         <input type="text" id="search" name="search"></input>
        <select id="searchby" name="searchby">
          <option value="">Search By</option>

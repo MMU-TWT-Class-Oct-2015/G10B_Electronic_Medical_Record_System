@@ -209,7 +209,8 @@ if( mysql_num_rows( $inresult )==0 ){
         </tr>
       </table>
        </table>
-       <table class="subtn">
+     </fieldset>
+       <table align="center">
          <tr><td>
        <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
        <input style="background-color:#FA5858;" id="button" type="reset" name="resetbtn"  value="Reset"/>

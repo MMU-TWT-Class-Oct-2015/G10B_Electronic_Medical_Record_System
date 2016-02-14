@@ -22,6 +22,7 @@ $deletebtn=$_POST['deletebtn'];
 $gid =$_POST['id'];
 $username = $_POST['username'];
 $password = $_POST['password'];
+$password = sha1($password);
 $type = $_POST['type'];
 $ic = $_POST['ic'];
 $phonenumber = $_POST['phonenumber'];

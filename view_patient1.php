@@ -147,7 +147,7 @@ if( mysql_num_rows( $inresult )==0 ){
     <div class="conform">
       <div class="viewtable">
           <form action="view_search_patient.php" method="post">
-
+            <br>
             <input type="text" id="search" name="search">
 
            <select id="searchby" name="searchby">
@@ -156,8 +156,8 @@ if( mysql_num_rows( $inresult )==0 ){
              <option value="patientId">Patient ID</option>
              <option value="patientIc">Patient IC</option>
              <input style="background-color:#00FF40;" id="button" type="submit" name="submitbtn"  value="Submit"/>
-        <?php
 
+        <?php
         $i=0;
       $query = "SELECT patientName,patientPhoneNo,patientIc, patientAddress,Dob,patientGender,race,religion,insurance FROM patient order by patientId";
       $result = mysql_query($query) or die(mysql_error());

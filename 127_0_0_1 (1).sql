@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2016 at 11:05 PM
+-- Generation Time: Feb 14, 2016 at 11:59 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -21,20 +21,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `emr_system` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `emr_system`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `medical_history`
---
-
-CREATE TABLE `medical_history` (
-  `patientId` int(11) DEFAULT NULL,
-  `medicalId` int(11) NOT NULL,
-  `symptoms` varchar(100) DEFAULT NULL,
-  `diagnosis` varchar(100) DEFAULT NULL,
-  `treatment` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -61,12 +47,8 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`userId`, `username`, `password`, `type`, `ic`, `phoneNo`, `email`, `gender`, `doctorName`, `speciality`, `picture`) VALUES
-(1, 'admin', '12345', 1, 951212011234, 111231234, 'admin@gmail.com', 'M', 'Tan Ker Yun', 'Surgeon', 'image\\dentist.jpg'),
-(2, 'staff', 'staff', 0, 750401016765, 122345123, 'staff@gmail.com', 'M', 'Cindy', 'Heart Surgeon', 'image\\dentist.jpg'),
-(6, 'JB', '12345', 0, 991104012345, 151111987, 'ng_jb94@hotmail.com', 'M', 'Ng Jin Boon', 'Dentists', 'image\\dentist.jpg'),
-(33, 'Ali', '1234', 0, 891201014567, 198769768, '1231@gmail.com', 'F', 'Ali Wong', 'Dentists', 'image/nurse.jpg'),
-(34, 'kelvin', '12345', 0, 870105016724, 188987652, 'asda@hotmail.com', 'm', 'kelvin Tan', 'Dentists', 'image/dr.female.png'),
-(35, 'Dali', '1234', 0, 881212012345, 199999281, '123213@gmail.com', 'f', 'Dali ng', 'Dentists&#8206;', 'image/dr.female.png');
+(1, 'admin', '8cb2237d0679ca88db6464eac60da96345513964', 1, 951212011234, 111231234, 'admin@gmail.com', 'M', 'Tan Ker Yun', 'Surgeon', 'image\\dentist.jpg'),
+(2, 'staff', '6ccb4b7c39a6e77f76ecfa935a855c6c46ad5611', 0, 750401016765, 122345123, 'staff@gmail.com', 'M', 'Alex', 'Heart Surgeon', 'image\\dentist.jpg');
 
 -- --------------------------------------------------------
 
@@ -94,8 +76,8 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`userId`, `patientId`, `patientName`, `patientPhoneNo`, `patientIc`, `patientAddress`, `Dob`, `patientGender`, `race`, `religion`, `insurance`, `age`) VALUES
-(1, 12, 'Ali', 198712645, 870105018765, '10 jalan 12 taman bunga raya', '2016-02-02', 'm', 'malay', 'malaysian', 'AIA', NULL),
-(1, 13, 'Amy', 177653456, 980115012386, 'jalan 10 taman bunga raya', '2016-02-18', 'm', 'malay', 'malaysian', 'Potential', NULL),
+(1, 12, 'Ali', 198712645, 870105018765, '10 jalan 12 taman bunga raya', '2016-02-02', 'M', 'malay', 'malaysian', 'AIA', 29),
+(1, 13, 'Amy', 177653456, 980115012386, 'jalan 10 taman bunga raya', '2016-02-18', 'M', 'malay', 'malaysian', 'Potential', NULL),
 (1, 14, 'Lily', 192344221, 991201012345, '12,jalan 11 taman bunga raya', '2015-06-16', 'F', 'cina', 'malaysian', 'AIA', NULL),
 (1, 15, 'Nami', 177895643, 990101012345, '44,jalan bunga raya taman bunga raya', '1994-07-12', 'F', 'indian', 'malaysian', 'AIA', NULL);
 
@@ -119,18 +101,17 @@ CREATE TABLE `record` (
 --
 
 INSERT INTO `record` (`recordId`, `patientId`, `userId`, `treatment`, `diagnosis`, `symptom`) VALUES
-(1, 12, 1, 'Beauty Treatments', 'Nursing diagnosis', 'Interstitial Cystitis Symptoms and Signs');
+(1, 12, 1, 'Beauty Treatments', 'Nursing diagnosis', 'Interstitial Cystitis Symptoms and Signs'),
+(3, 12, 1, 'aaa', 'aaa', 'aaa'),
+(4, 12, 1, 'bbb', 'bbb', 'bbb'),
+(5, 12, 1, 'ccc', 'ccc', 'ccc'),
+(6, 12, 1, 'ddd', 'ddd', 'ddd'),
+(7, 12, 1, 'eee', 'eee', 'eee'),
+(9, 12, 1, 'qq', 'qq', 'qq');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `medical_history`
---
-ALTER TABLE `medical_history`
-  ADD PRIMARY KEY (`medicalId`),
-  ADD KEY `patientId` (`patientId`);
 
 --
 -- Indexes for table `members`
@@ -158,34 +139,23 @@ ALTER TABLE `record`
 --
 
 --
--- AUTO_INCREMENT for table `medical_history`
---
-ALTER TABLE `medical_history`
-  MODIFY `medicalId` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `userId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `userId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `patientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `patientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `record`
 --
 ALTER TABLE `record`
-  MODIFY `recordId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `recordId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `medical_history`
---
-ALTER TABLE `medical_history`
-  ADD CONSTRAINT `medical_history_ibfk_1` FOREIGN KEY (`patientId`) REFERENCES `patient` (`patientId`);
 
 --
 -- Constraints for table `patient`

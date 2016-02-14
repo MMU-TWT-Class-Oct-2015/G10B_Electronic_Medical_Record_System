@@ -28,7 +28,12 @@ if( mysql_num_rows( $inresult )==0 ){
 
       $Dsearch=$_POST["search"];
       $Dsearchby=$_POST["searchby"];
-
+      if($Dsearch==""){
+        echo  "<script type='text/javascript'>
+                  window.alert('Please insert value.');
+                  window.location.href = 'view_user.php';
+              </script>";
+      }
       $conn = mysql_connect("$host", "root", "")or die("cannot connect");
       mysql_select_db("$db_name")or die("cannot select DB");
 
@@ -36,9 +41,12 @@ if( mysql_num_rows( $inresult )==0 ){
       $sql = "SELECT * FROM members WHERE doctorName='$Dsearch' ";
 
          $retrieve = mysql_query( $sql, $conn );
-
-         if(! $retrieve ) {
-            die('Could not get data: ' . mysql_error());
+         $rowcount=mysql_num_rows($retrieve);
+         if($rowcount==0){
+           echo "<script type='text/javascript'>
+                     window.alert('No data. Please type a correct value!');
+                     window.location.href = 'view_user.php';
+                 </script>";
          }
 
          while($grow = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
@@ -59,8 +67,12 @@ if( mysql_num_rows( $inresult )==0 ){
 
          $retrieve = mysql_query( $sql, $conn );
 
-         if(! $retrieve ) {
-            die('Could not get data: ' . mysql_error());
+         $rowcount=mysql_num_rows($retrieve);
+         if($rowcount==0){
+           echo "<script type='text/javascript'>
+                     window.alert('No data. Please type a correct value!');
+                     window.location.href = 'view_user.php';
+                 </script>";
          }
 
          while($grow = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
@@ -77,14 +89,16 @@ if( mysql_num_rows( $inresult )==0 ){
            $gppicture=$grow['picture'];
          }
       }elseif($Dsearchby == "ic"){
-      $sql = "SELECT * FROM patient WHERE ic='$Dsearch' ";
+      $sql = "SELECT * FROM members WHERE ic='$Dsearch' ";
 
          $retrieve = mysql_query( $sql, $conn );
-
-         if(! $retrieve ) {
-            die('Could not get data: ' . mysql_error());
+         $rowcount=mysql_num_rows($retrieve);
+         if($rowcount==0){
+           echo "<script type='text/javascript'>
+                     window.alert('No data. Please type a correct value!');
+                     window.location.href = 'view_user.php';
+                 </script>";
          }
-
          while($grow = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
            $gid=$grow['userId'];
            $gusername=$grow['username'];
@@ -99,6 +113,12 @@ if( mysql_num_rows( $inresult )==0 ){
            $gppicture=$grow['picture'];
          }
        }
+    else {
+      echo "<script type='text/javascript'>
+                window.alert('Please choose a type to perform searching!');
+                window.location.href = 'view_user.php';
+            </script>";
+    }
 ?>
 
 <html>
@@ -119,9 +139,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Record</a>
             <div class="dropdown-content">
               <a href="record.php">Add new Record</a>
-              <a href="view_record.php">View Record</a>
-              <a href="#">Update Record</a>
-              <a href="#">Delete Record</a>
+              <a href="view_record.php">View/ Update/ Delete Record</a>
+
             </div>
           </div>
         </li>
@@ -131,9 +150,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Patient Profile</a>
             <div class="dropdown-content">
               <a href="patient.php">Add new Profile</a>
-              <a href="view_patient1.php">View Profile</a>
-              <a href="#">Update Profile</a>
-              <a href="#">Delete Profile</a>
+              <a href="view_patient1.php">View/ Update/ Delete Profile</a>
+
             </div>
           </div>
         </li>
@@ -148,9 +166,8 @@ if( mysql_num_rows( $inresult )==0 ){
             <a href="#" class="dropbtn">Human Resource System</a>
             <div class="dropdown-content">
               <a href="hr.php">Add new User</a>
-              <a href="view_user.php">View User</a>
-              <a href="#">Update User</a>
-              <a href="#">Delete User</a>
+              <a href="view_user.php">View/ Update/ Delete User</a>
+
             </div>
           </div>
         </li>
@@ -217,56 +234,65 @@ if( mysql_num_rows( $inresult )==0 ){
     <div class="conform">
       <div id="table">
       <fieldset style="width:90%; height:320px; margin-left:30px;">
-      <table style="float:left" id = "table1">
+      <table style="float:left" id = "table1" class="wt">
       <form action="delete_member.php" method="post" enctype="multipart/form-data">
       <legend id="legend">New Doctor Profile</legend>
 
       <tr>
-        <td><input type="text" class="textbox" name="username" id="username" value=<?php echo $gusername; ?> required/></td>
+        <td>Username: <br><input type="text" class="textbox" name="username" id="username" value=<?php echo $gusername; ?> required/></td>
       </tr>
 <tr></tr><tr></tr>
       <tr>
-        <td><input type="password" name="password"class="textbox" id="password" value=<?php echo $gpassword; ?> required/></td>
+        <td>Password: <br><input type="password" name="password"class="textbox" id="password" value=<?php echo $gpassword; ?> required/></td>
       </tr>
 <tr></tr><tr></tr>
       <tr>
-        <td><input type="text" class="textbox" name="phonenumber" id="phonenumber" value=<?php echo $gphoneNo; ?> required/></td>
+        <td>Phone No: <br><input type="text" class="textbox" name="phonenumber" id="phonenumber" value=<?php echo $gphoneNo; ?> required/></td>
       </tr>
 <tr></tr><tr></tr>
 <tr></tr><tr></tr>
       <tr>
-        <td><input type="text" class="textbox" name="ic" id="ic" value=<?php echo $gic; ?> required/></td>
+        <td>IC: <br><input type="text" class="textbox" name="ic" id="ic" value=<?php echo $gic; ?> required/></td>
       </tr>
 <tr></tr><tr></tr>
       <tr>
-        <td><input type="text" class="textbox" name="email" id="email" value=<?php echo $gemail; ?> required></td>
+        <td>Email: <br><input type="text" class="textbox" name="email" id="email" value=<?php echo $gemail; ?> required></td>
       </tr>
       <tr></tr><tr></tr>
-      <tr>
-        <td>Gender:   <input type="radio" name="gender" value="m">Male<input type="radio" name="gender" value="f">Female</td>
-      </tr>
+
       <tr></tr><tr></tr>
-      <tr>
-        <td>Position:<input type="radio" name="type" value="0">Staff</td>
-      </tr>
-      <tr></tr><tr></tr>
-      <tr>
-      <td> <input type="file" name="fileToUpload" id="fileToUpload"></td>
-      </tr>
-      <table class="wt" style="float:middle">
+
+      <table class="wt" style="float:right">
         <tr>
-          <td><input type="text" class="textbox"  name="drname" id="drname" value=<?php echo $gdrname; ?> required/></td>
+          <td>Doctor Name: <br><input type="text" class="textbox"  name="drname" id="drname" value=<?php echo $gdrname; ?> required/></td>
         </tr>
         <tr></tr><tr></tr>
         <tr>
-          <td><input type="text" class="textbox" name="special" id="special" value=<?php echo $gdrspecial; ?> required/></td>
+          <td>Speciality: <br><input type="text" class="textbox" name="special" id="special" value=<?php echo $gdrspecial; ?> required/></td>
         </tr>
         <tr></tr><tr></tr>
         <td><input type="hidden" class="textbox"  name="id" id="id" value=<?php echo $gid; ?> required/></td>
+        <tr>
+          <?php if($ggender=="m" || $ggender=="M"){ ?>
+            <td>Gender:   <input type="radio" name="gender" value="M" checked>Male<input type="radio" name="gender" value="F">Female</td>
+          <?php }
+                else { ?>
+                  <td>Gender:   <input type="radio" name="gender" value="M">Male<input type="radio" name="gender" value="F" checked>Female</td>
+            <?php    }
+           ?>
+        </tr>
+        <tr></tr><tr></tr>
+        <tr>
+          <td>Position:<input type="checkbox" name="type" disabled value="0" checked="">Staff</td>
+        </tr>
 
+        <tr>
+        <td> <input type="file" name="fileToUpload" id="fileToUpload"></td>
+        </tr>
       </table>
        </table>
-       <table class="subtn">
+</fieldset>
+       <table align="center">
          <tr><td>
        <input style="background-color:#00FF40;" id="button" type="submit" name="editbtn"  value="Edit"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
        <input style="background-color:#FA5858;" id="button" type="submit" name="deletebtn"  value="Delete"/>

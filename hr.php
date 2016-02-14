@@ -167,7 +167,7 @@ if( mysql_num_rows( $inresult )==0 ){
       </tr>
       <tr></tr><tr></tr>
       <tr>
-        <td>Gender:   <input type="radio" name="gender" value="m">Male<input type="radio" name="gender" value="f">Female</td>
+        <td>Gender:   <input type="radio" name="gender" value="M">Male<input type="radio" name="gender" value="F">Female</td>
       </tr>
       <tr></tr><tr></tr>
       <tr>
