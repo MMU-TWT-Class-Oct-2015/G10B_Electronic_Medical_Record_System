@@ -150,6 +150,7 @@ if( mysql_num_rows( $inresult )==0 ){
 
       <div class="viewtable">
           <form action="view_search_record.php" method="post">
+            <br>
             <input type="text" id="search" name="search">
            <select id="searchby" name="searchby">
              <option value="">Search By</option>

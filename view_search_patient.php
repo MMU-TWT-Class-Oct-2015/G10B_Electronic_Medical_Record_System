@@ -34,14 +34,24 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $search = $_POST['search'];
 $searchby = $_POST['searchby'];
-
+if($search == ""){
+  echo "<script type='text/javascript'>
+            window.alert('Please insert value.');
+            window.location.href = 'view_patient1.php';
+        </script>";
+      }
 if($searchby == "patientId"){
 $sql = "SELECT * FROM patient WHERE patientId='$search' ";
 
    $retrieve = mysql_query( $sql, $conn );
 
-   if(! $retrieve ) {
-      die('Could not get data: ' . mysql_error());
+   $rowcount=mysql_num_rows($retrieve);
+
+   if($rowcount==0){
+     echo "<script type='text/javascript'>
+               window.alert('No data. Please type a correct value!');
+               window.location.href = 'view_patient1.php';
+           </script>";
    }
 
    while($row = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
@@ -63,8 +73,13 @@ $sql = "SELECT * FROM patient WHERE patientName='$search' ";
 
    $retrieve = mysql_query( $sql, $conn );
 
-   if(! $retrieve ) {
-      die('Could not get data: ' . mysql_error());
+   $rowcount=mysql_num_rows($retrieve);
+
+   if($rowcount==0){
+     echo "<script type='text/javascript'>
+               window.alert('No data. Please type a correct value!');
+               window.location.href = 'view_patient1.php';
+           </script>";
    }
 
    while($row = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
@@ -86,8 +101,13 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
 
    $retrieve = mysql_query( $sql, $conn );
 
-   if(! $retrieve ) {
-      die('Could not get data: ' . mysql_error());
+   $rowcount=mysql_num_rows($retrieve);
+
+   if($rowcount==0){
+     echo "<script type='text/javascript'>
+               window.alert('No data. Please type a correct value!');
+               window.location.href = 'view_patient1.php';
+           </script>";
    }
 
    while($row = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
@@ -105,6 +125,13 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
   $age= $row['age'];
    }
  }
+ else {
+   echo "<script type='text/javascript'>
+             window.alert('Please choose a type to perform searching!');
+             window.location.href = 'view_patient1.php';
+         </script>";
+ }
+
  ?>
 
  <html>
@@ -154,7 +181,7 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
                      <a href="#" class="dropbtn">Human Resource System</a>
                      <div class="dropdown-content">
                        <a href="hr.php">Add new User</a>
-                       <a href="#">View/ Update/ Delete User</a>
+                       <a href="view_user.php">View/ Update/ Delete User</a>
 
                      </div>
                    </div>
@@ -224,15 +251,13 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
      <div class="conform">
        <div id="table">
        <fieldset style="width:90%; height:320px; margin-left:30px;">
-       <table style="float:left" >
+       <table style="float:left" class="wt">
        <form action="update_patient_profile.php" method="post">
        <legend id="legend">Searched Profile</legend>
 
        <tr>
 
          <td>Patient ID:<br><input type="text"  class="textbox"  value = <?php echo $patientId ?>> </td>
-
-         <td>Patient ID:<br><input type="none"  name = "pid"  class="textbox"  value = <?php echo $patientId ?>> </td>
 
        </tr>
  <tr></tr><tr></tr>
@@ -253,7 +278,7 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
        </tr>
  <tr></tr><tr></tr>
  </table>
- <table style="float:middle" >
+ <table style="float:right" class="wt">
        <tr>
        <td>Date of Birth:<br><input type="text" name = "birthday" class="textbox"  value = <?php echo $Dob ?>></td>
        </tr>
@@ -278,7 +303,8 @@ $sql = "SELECT * FROM patient WHERE patientIc='$search' ";
        <td>Age:<br><input type="text"  name="age" class="textbox"  value = <?php echo $age ?>></td>
        </tr>
         </table>
-        <table style="float:right" class="subtn">
+      </fieldset>
+        <table align="center">
           <tr><td>
         <input style="background-color:#00FF40;" id="button" type="submit" name="updatebtn"  value="Update"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
         <input style="background-color:#FA5858;" id="button" type="submit" name="deletebtn"  value="Delete"/>

@@ -31,7 +31,15 @@ $treatment = $_POST['treatment'];
 $diagnosis=$_POST['diagnosis'];
 $symptoms=$_POST['symptoms'];
 $patientId = $_POST['patientid'];
-
+$sql="SELECT * FROM patient WHERE patientId=$patientId";
+$retrieve=mysql_query($sql);
+$rowcount=mysql_num_rows($retrieve);
+if($rowcount==0){
+  echo "<script type='text/javascript'>
+            window.alert('No data. Please enter a valid patient ID!');
+            window.location.href = 'record.php';
+        </script>";
+}
   $form_data = array(
     'recordId' => NULL,
     'patientId' => $patientId,
@@ -49,10 +57,7 @@ $patientId = $_POST['patientid'];
         return mysql_query($sql);
 
       $sqlresult = mysql_query($sql);
-      echo "<script type='text/javascript'>
-                window.alert('New record successfully created!');
-                window.location.href = 'main1.php';
-            </script>";
+
         return $sqlresult;
 
 
@@ -62,9 +67,12 @@ mysql_select_db("$db_name");
 
 dbRowInsert('record',$form_data);
 
-
-header("location:record.php");
-exit();
+echo "<script type='text/javascript'>
+          window.alert('New record successfully created!');
+          window.location.href = 'view_record.php';
+      </script>";
+//header("location:record.php");
+//exit();
 
 
 

@@ -35,16 +35,24 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 $search = $_POST['search'];
 $searchby = $_POST['searchby'];
-
+if($search == ""){
+  echo "<script type='text/javascript'>
+            window.alert('Please insert value.');
+            window.location.href = 'view_record.php';
+        </script>";
+      }
 if($searchby == "recordId"){
 $sql = "SELECT * FROM record INNER JOIN patient  WHERE recordId = '$search' ";
 
    $retrieve = mysql_query( $sql, $conn );
+$rowcount=mysql_num_rows($retrieve);
 
-   if(! $retrieve ) {
-      die('Could not get data: ' . mysql_error());
-   }
-
+if($rowcount==0){
+  echo "<script type='text/javascript'>
+            window.alert('No data. Please type a correct value!');
+            window.location.href = 'view_record.php';
+        </script>";
+}
    while($row = mysql_fetch_array($retrieve, MYSQL_ASSOC)) {
 
    $recordId= $row['recordId'];
@@ -53,10 +61,15 @@ $sql = "SELECT * FROM record INNER JOIN patient  WHERE recordId = '$search' ";
    $treatment= $row['treatment'];
    $diagnosis= $row['diagnosis'];
    $symptom= $row['symptom'];
-
-   }
+     }
 }
 
+else {
+  echo "<script type='text/javascript'>
+            window.alert('Please choose a type to perform searching!');
+            window.location.href = 'view_record.php';
+        </script>";
+}
  ?>
  <html>
 
@@ -105,7 +118,7 @@ $sql = "SELECT * FROM record INNER JOIN patient  WHERE recordId = '$search' ";
                      <a href="#" class="dropbtn">Human Resource System</a>
                      <div class="dropdown-content">
                        <a href="hr.php">Add new User</a>
-                       <a href="#">View/ Update/ Delete User</a>
+                       <a href="view_user.php">View/ Update/ Delete User</a>
 
                      </div>
                    </div>
@@ -177,20 +190,19 @@ $sql = "SELECT * FROM record INNER JOIN patient  WHERE recordId = '$search' ";
      <form action="update_record.php" method="post">
        <fieldset style="width:90%; height:auto; margin-left:30px;">
        <legend id="legend">Update Record</legend>
-       <table id="recordsize">
+       <table id="recordsize" class="wt">
          <tr>
-
-           <td><input type="text" class="textbox" name="patientId" id="pid" placeholder="PatientID" required value=<?php echo $patientId ?> /></td>
+           <td>Patient ID: <br><input type="text" class="textbox" name="patientId" id="pid" disabled placeholder="PatientID" required value=<?php echo $patientId ?> /></td>
            <td><input type="text" name='recordId' value=<?php echo $recordId ?>  style="display:none"></td>
          </tr>
          <tr>
-           <td><textarea name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required ><?php echo $treatment ?></textarea></td>
+           <td>Treatment: <br><textarea name="treatment"  id="treatment" rows="4" cols="50" maxlength="500" placeholder="Treatment.." required ><?php echo $treatment ?></textarea></td>
          </tr>
          <tr>
-             <td><textarea name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required ><?php echo $diagnosis ?></textarea></td>
+             <td>Diagnosis: <br><textarea name="diagnosis" id="diagnosis" rows="4" cols="50" maxlength="500" placeholder="Diagnosis.." required ><?php echo $diagnosis ?></textarea></td>
          </tr>
          <tr>
-           <td><textarea name="symptom" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required ><?php echo $symptom ?></textarea></td>
+           <td>Symptom: <br><textarea name="symptom" id="symptoms" rows="4" cols="50" maxlength="500" placeholder="Patient Symptoms.." required ><?php echo $symptom ?></textarea></td>
          </tr>
        </table>
      </fieldset>
