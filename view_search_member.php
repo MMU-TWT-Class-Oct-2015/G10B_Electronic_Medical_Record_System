@@ -294,7 +294,7 @@ if( mysql_num_rows( $inresult )==0 ){
 </fieldset>
        <table align="center">
          <tr><td>
-       <input style="background-color:#00FF40;" id="button" type="submit" name="editbtn"  value="Edit"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+       <input style="background-color:#00FF40;" id="button" type="submit" name="editbtn"  value="Update"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
        <input style="background-color:#FA5858;" id="button" type="submit" name="deletebtn"  value="Delete"/>
 </td>
      </tr>
