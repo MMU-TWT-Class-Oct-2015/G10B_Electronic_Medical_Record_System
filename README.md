@@ -9,7 +9,6 @@ Our project title to this system is Electronic Medical Record Systems. It is an 
 
 Our main objective of this project is to create an Electronic Medical Record Systems which able to store all the patient profile, provide a summary of a person's contact with healthcare provider and treatment provided to ensure appropriate healthcare. 
 
-
 **Project Scope**
 
 There are severals scope in our project. The project scope will be listed below.
@@ -28,16 +27,9 @@ Choong Han Sheng | Content in the second column
 Chong Yee Soon | Content from cell 2
 Ng Jin Boon | Content in the second column
 
-
 **Conclusion**
 
 Overall in this project we have learned many thing such as learning how to connects http website to the database. We also learned that creating a fully functional system with interactive interface is not an easy task. Etc etc
-
-**Apendix**
-
-
-
-
 
 ##User Manual
 ***
