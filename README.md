@@ -1,6 +1,13 @@
 #Electronic Medical Record System
 ***
 
+Name | Student ID
+------------ | -------------
+Tan Ker Yun | 1131122927
+Choong Han Sheng | 1131122928
+Chong Yee Soon | 1131122841
+Ng Jin Boon | 1121116301
+
 **Introduction**
 
 Our project title to this system is Electronic Medical Record Systems. It is an online based Electronic Medical Record System. This system is used to record down all the patient personal information (such as name, address, date of birth), a summary of the patient's medical history, and also documentation of each event, including symptoms, diagnosis, treatment and outcome. 
